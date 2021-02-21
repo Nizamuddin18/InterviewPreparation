@@ -144,9 +144,9 @@ Any contributions you make are **greatly appreciated**.
 <!-- CONTACT -->
 ## Contact
 
-LinkedIn - [https://www.linkedin.com/in/nizamuddin-ahmed-079479120/](https://www.linkedin.com/in/nizamuddin-ahmed-079479120/)
-Email - [ahmednizam2@gmail.com](ahmednizam2@gmail.com)
-Project Link: [https://github.com/Nizamuddin18/InterviewPreparation](https://github.com/Nizamuddin18/InterviewPreparation)
+* LinkedIn - [https://www.linkedin.com/in/nizamuddin-ahmed-079479120/](https://www.linkedin.com/in/nizamuddin-ahmed-079479120/)
+* Email - [ahmednizam2@gmail.com](ahmednizam2@gmail.com)
+* Project Link: [https://github.com/Nizamuddin18/InterviewPreparation](https://github.com/Nizamuddin18/InterviewPreparation)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
