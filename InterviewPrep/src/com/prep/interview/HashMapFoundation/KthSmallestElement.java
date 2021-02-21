@@ -9,7 +9,7 @@ public class KthSmallestElement {
 		int k = 3;
 		System.out.println("::::: Kth Smallest Element :::::");
 		int kthSmallestElement = findKthSamllestElement(arr, size , k);
-		System.out.print("Input : ");
+		System.out.print("Input  : ");
 		for(Integer i : arr)
 			System.out.print(i + " ");
 		System.out.println();
