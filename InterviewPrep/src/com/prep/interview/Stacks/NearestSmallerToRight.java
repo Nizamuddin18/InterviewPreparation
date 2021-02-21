@@ -30,13 +30,13 @@ public class NearestSmallerToRight {
 	public static void main(String[] args) {
 		int arr[] = {1, 6, 4, 10, 2, 5};
 		int size = arr.length;
+		System.out.println(":::::Nearest Smaller To Right:::::");
 		System.out.print("Input : ");
 		for(int i =0 ; i< arr.length ; i++){
 			System.out.print(arr[i]+" ");
 		}
 		System.out.println();
-		findNearestElementToRight(arr , size);
-		
+		findNearestElementToRight(arr , size);	
 	}
 
 	

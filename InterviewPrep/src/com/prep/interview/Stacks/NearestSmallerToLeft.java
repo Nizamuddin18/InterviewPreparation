@@ -28,6 +28,7 @@ public class NearestSmallerToLeft {
 	public static void main(String[] args) {
 		int arr[] = {1, 6, 4, 10, 2, 5};
 		int size = arr.length;
+		System.out.println(":::::Nearest Smaller To Left:::::");
 		System.out.print("Input : ");
 		for(int i =0 ; i< arr.length ; i++){
 			System.out.print(arr[i]+" ");
