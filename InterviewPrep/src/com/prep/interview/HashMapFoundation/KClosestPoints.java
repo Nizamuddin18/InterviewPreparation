@@ -1,4 +1,4 @@
-package com.tcs.Practice.Heap;
+package com.prep.interview.HashMapFoundation;
 
 import java.util.Collections;
 import java.util.PriorityQueue;

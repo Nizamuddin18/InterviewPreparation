@@ -1,4 +1,4 @@
-package com.tcs.Practice.Heap;
+package com.prep.interview.HashMapFoundation;
 
 import java.util.Collection;
 import java.util.PriorityQueue;
@@ -19,7 +19,7 @@ public class KSmallestElements {
 	}
 
 	private static void findKSmallestElements(int[] arr, int size, int k) {
-		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(10, Collections.reverseOrder());
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(k+1, Collections.reverseOrder());
 		for(int i = 0 ;i < size ; i++){
 			if(i < k){
 				pq.add(arr[i]);

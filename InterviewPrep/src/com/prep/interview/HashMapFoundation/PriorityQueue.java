@@ -1,5 +1,4 @@
-package com.tcs.Practice.Heap;
-
+package com.prep.interview.HashMapFoundation;
 import java.util.ArrayList;
 import java.util.Scanner;
 

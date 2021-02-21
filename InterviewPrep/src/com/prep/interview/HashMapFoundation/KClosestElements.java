@@ -1,4 +1,4 @@
-package com.tcs.Practice.Heap;
+package com.prep.interview.HashMapFoundation;
 
 import java.util.Collections;
 import java.util.PriorityQueue;
@@ -15,12 +15,6 @@ class Pair implements Comparable<Pair>{
 	public Pair(){
 		
 	}
-	
-	
-	@Override
-	public String toString() {
-		return "[index=" + index + "]";
-	}
 	@Override
 	public int compareTo(Pair p) {
 		if(this.val > p.val)
@@ -30,7 +24,6 @@ class Pair implements Comparable<Pair>{
 		else
 			return 0;
 	}
-
 }
 
 public class KClosestElements {
@@ -40,6 +33,13 @@ public class KClosestElements {
 		int size = arr.length;
 		int k = 3;
 		int x = 7;
+		System.out.println("::::: K Closest Elements :::::");
+		System.out.print("Input : ");
+		for(int i = 0 ; i < arr.length ; i++)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+		System.out.println("K : " + k);
+		System.out.println("Point : " + x);
 		kClosestElements(arr, size , k , x);
 	}
 
@@ -50,10 +50,11 @@ public class KClosestElements {
 			if(pq.size() > k)
 				pq.poll();
 		}
+		System.out.print(k + " Closest Points To " + x +" : { ");
 		while(!pq.isEmpty()){
-			System.out.println(pq.poll()+" ");
+			System.out.print(pq.poll().index+" ");
 		}
-		
+		System.out.print("} ");
 	}
 
 }

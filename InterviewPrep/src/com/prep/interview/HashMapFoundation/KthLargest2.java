@@ -1,4 +1,4 @@
-package com.tcs.Practice.Heap;
+package com.prep.interview.HashMapFoundation;
 
 public class KthLargest2 {
 	private static int kthLargestElement(int[] arr, int li, int ri, int k) {
