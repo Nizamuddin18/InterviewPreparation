@@ -11,7 +11,12 @@ public class NearlySortedArrray {
 		int arr[] = {6,5,3,2,8,10,9};
 		int size = arr.length;
 		int k = 3;
+		System.out.print("Input : ");
+		for(int i = 0; i< arr.length; i++)
+			System.out.print(arr[i]+" ");
 		int res_arr[] = kSortedArray(arr, size , k);
+		System.out.println();
+		System.out.print("Output : ");
 		for(int i = 0; i< res_arr.length; i++)
 			System.out.print(res_arr[i]+" ");
 	}
