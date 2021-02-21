@@ -85,12 +85,9 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 -->
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
-
+This section should list of Programming Language Used. 
+Leave any add-ons/plugins for the acknowledgements section. 
+* [Java](https://www.java.com/en/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -107,20 +104,19 @@ https://www.oracle.com/in/java/technologies/javase-jdk15-downloads.html
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Set Java Path in User Variable
 ```sh
-git clone https:://github.com/your_username_/Project-Name.git
+JAVA_HOME  C:\Program Files\Java\jdk1.8.0_221\
 ```
-3. Install NPM packages
+2. Set Java Path in System Variables
 ```sh
-npm install
+C:\Program Files\Java\jdk1.8.0_221\
+C:\Program Files\Java\jre1.8.0_221\bin
 ```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
+2. Clone the Repository
+```sh
+git clone https://github.com/Nizamuddin18/InterviewPreparation.git
 ```
-
 
 
 <!-- USAGE EXAMPLES -->
