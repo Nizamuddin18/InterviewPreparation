@@ -115,15 +115,16 @@ This is a complete Educational Project.Any suggestions are welcome
 * [Array]
 * [String]
 * [Searching & Sorting]
-* [Linked List]
-* [Recursion]
-* [Backtracking]
-* [Binary Trees]
+* [Linked List](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/LinkedList)
+* [Recursion](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/Recursion)
+* [Backtracking](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/BackTracking)
+* [Binary Trees](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/BinaryTrees)
 * [Binary Search Trees]
-* [HashMap & Heaps]
-* [Stacks & Queues]
-* [Dynamic Programming]
-* [Graphs]
+* [Heaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/HashMapFoundation)
+* [HashMaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/HashmapHeaps)
+* [Stacks & Queues](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/Stacks)
+* [Dynamic Programming](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/DynamicProgramming)
+* [Graphs](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/Graph)
 * [Greedy]
 * [Bit Manipulation]
 * [Trie]
