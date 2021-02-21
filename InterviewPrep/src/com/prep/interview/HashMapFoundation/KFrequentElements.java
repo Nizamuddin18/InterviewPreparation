@@ -52,6 +52,10 @@ public class KFrequentElements {
 	public static void main(String[] args) {
 		int arr[] = {1,1,1,3,2,4,4};
 		int k = 2;
+		System.out.println(":::::Kth Frequent Elements:::::");
+		for(int i = 0 ; i < arr.length ; i++)
+			System.out.print(arr[i] + " ");
+		System.out.println();
 		findKFrequentElements(arr,k,arr.length);
 	}
 }
