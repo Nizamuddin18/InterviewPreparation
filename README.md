@@ -20,10 +20,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Nizamuddin18/InterviewPreparation">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
   <h3 align="center">INTERVIEW PREPARATION</h3>
 
   <p align="center">
@@ -148,7 +144,8 @@ Any contributions you make are **greatly appreciated**.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+LinkedIn - [https://www.linkedin.com/in/nizamuddin-ahmed-079479120/](https://www.linkedin.com/in/nizamuddin-ahmed-079479120/)
+Email - [ahmednizam2@gmail.com](ahmednizam2@gmail.com)
 Project Link: [https://github.com/Nizamuddin18/InterviewPreparation](https://github.com/Nizamuddin18/InterviewPreparation)
 
 <!-- ACKNOWLEDGEMENTS -->
