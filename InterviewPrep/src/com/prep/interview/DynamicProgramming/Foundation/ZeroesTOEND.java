@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tcs.Practice;
+package com.prep.interview.DynamicProgramming.Foundation;
 
 /*Given an array A[] of n elements filled with several integers, 
 some of them being zeroes, you need to move all the zeroes to the end.

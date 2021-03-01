@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tcs.Practice;
+package com.prep.interview.DynamicProgramming.Foundation;
 
 /*
  *Given a sorted array A (sorted in ascending order), having N integers,

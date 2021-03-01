@@ -1,4 +1,4 @@
-package com.tcs.Practice;
+package com.prep.interview.DynamicProgramming.Foundation;
 public class LCSMemo {
 	static int t[][];
 	private int getLCSMemo(String x, String y, int m, int n) {

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tcs.Practice;
+package com.prep.interview.DynamicProgramming.Foundation;
 /*
 	You are given an array arr[] of size n with duplicate elements, 
 	write a program to remove all duplicates from the array, 

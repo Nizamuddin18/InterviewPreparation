@@ -1,4 +1,4 @@
-package com.tcs.Practice;
+package com.prep.interview.DynamicProgramming.Foundation;
 
 public class MaxWaysCoinChange {
 	static int t[][];
