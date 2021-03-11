@@ -19,6 +19,8 @@ public class LinkedListExample {
 		System.out.println("10.Middle of LinkedList");
 		System.out.println("11.Merge Sort Of LinkedList");
 		System.out.println("12.Remove duplicates from a sorted linked list");
+		System.out.println("13.Linked List To Stack");
+		System.out.println("14.Fold LinkedList");
 		while(true){
 			System.out.println("Enter Choice : ");
 			int choice = sc.nextInt();
@@ -99,13 +101,38 @@ public class LinkedListExample {
 				System.out.println("After Removal of Duplicates : ");
 				l.printList();
 				break;
+			case 13 : 
+				System.out.println("Linked List To Stack");
+				boolean flag = true;
+				while(flag){
+					System.out.println("1.PUSH\n2.POP\n3.TOP\n4.PRINT\n-1. Exit Stack...");
+					System.out.println("Enter Choice");
+					int choiceSt = sc.nextInt();
+					switch(choiceSt){
+					case 1: 
+						System.out.println("Enter Data : ");
+						int data = sc.nextInt();
+						l.addFirst(data);
+						break;
+					case 2 : 
+						l.removeFirst();
+						break;
+					case 3 : 
+						l.checkTop();
+						break;
+					case 4 : 
+						l.printList();
+						break;
+					default : 
+						flag = false;
+					}
+				}
+			case 14 : 
+				
+				break;
 			default :
 				System.exit(0);
 			}
-
 		}
-		
-
 	}
-
 }

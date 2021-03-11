@@ -57,6 +57,19 @@ public class LinkedListPrep {
 		}
 		size++;
 	}
+	
+	public void removeFirst(){
+		if(size == 0){
+			System.out.println("Underflow!");
+			return;
+		}else{
+			Node temp = head;
+			System.out.println("Node deleted : " + temp.data);
+			temp = temp.next;
+			head = temp;
+			size--;
+		}
+	}
 	public void printList(){
 		Node temp = head;
 		System.out.print("[ ");
@@ -219,6 +232,16 @@ public class LinkedListPrep {
 				temp = temp.next;
 			cur.next = temp.next;
 			cur = cur.next;
+		}
+	}
+	public void checkTop(){
+		if(size == 0){
+			System.out.println("Stack Underflow!");
+			return;
+		}else
+		{
+			Node temp = head;
+			System.out.println("Top Value : " + temp.data);
 		}
 	}
 	
