@@ -128,7 +128,7 @@ public class LinkedListExample {
 					}
 				}
 			case 14 : 
-				
+				l.foldLinkedList();
 				break;
 			default :
 				System.exit(0);

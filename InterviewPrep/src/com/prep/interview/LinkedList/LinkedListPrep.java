@@ -18,7 +18,7 @@ class Node{
 	
 }
 public class LinkedListPrep {
-	Node head;
+	static Node head;
 	Node tail;
 	int size;
 	
@@ -81,6 +81,16 @@ public class LinkedListPrep {
 		System.out.println();
 
 	}
+	public static void printListCustom(Node temp){
+		System.out.print("[ ");
+		while(temp!=null){
+			System.out.print(temp.data + " ");
+			temp = temp.next;
+		}
+		System.out.print("]");
+		System.out.println();
+
+	}
 	
 	public void rotateLinkedList(int k){
 		Node ptr = null;
@@ -125,6 +135,18 @@ public class LinkedListPrep {
 		head = prev;
 	}
 	
+	public static Node reverseByNode(Node head){
+		Node cur = head;
+		Node prev = null;
+		Node nextNode = null;
+		while(cur!=null){
+			nextNode = cur.next;//backup
+			cur.next = prev; //creates Links
+			prev = cur; //prev moves forward
+			cur = nextNode; //current moves forward
+		}
+		return prev;
+	}
 	public void addAtIndex(int index , int val){
 		Node temp = head;
 		Node node = createNode(val);
@@ -159,17 +181,24 @@ public class LinkedListPrep {
 		return slow.data;
 	}
 	
-	private Node getMiddleNode(Node start , Node end){
-		Node fast = start;
-		Node slow = start;
+	public static Node getMidNode(){
+		Node fast = head;
+		Node slow = head;
+		while(fast!=null && fast.next!=null){
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		return slow;
+	}
+	public Node getMiddleNode(Node start , Node end){
+		Node fast = head;
+		Node slow = head;
 		while(fast!=end && fast.next!=end){
 			fast = fast.next.next;
 			slow = slow.next;
 		}
-		
 		return slow;
 	}
-	
 	public LinkedListPrep mergeSort(Node start , Node end){
 		if(start == end){
 			LinkedListPrep baseResult = new LinkedListPrep();
@@ -243,6 +272,28 @@ public class LinkedListPrep {
 			Node temp = head;
 			System.out.println("Top Value : " + temp.data);
 		}
+	}
+	
+	public static void foldLinkedList(){
+		Node midNode = getMidNode();
+		Node nHead = midNode.next;
+		midNode.next = null;
+		nHead = reverseByNode(nHead);	
+		Node c1 = head;
+		Node c2 = nHead;
+		Node f1 = null;
+		Node f2 = null;
+		while(c2!=null){
+			f1 = c1.next;
+			f2 = c2.next;
+			
+			c1.next = c2;
+			c2.next = f1;
+			
+			c1= f1;
+			c2= f2;
+		}
+		printListCustom(head);
 	}
 	
 }
