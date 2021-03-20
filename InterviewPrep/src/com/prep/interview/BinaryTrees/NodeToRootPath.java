@@ -10,8 +10,8 @@ public class NodeToRootPath {
 		int data = 70;
 		ArrayList<Node> path = new ArrayList<>();
 		boolean ret_val = ntrp.findNodeToRootPath(root , data , path);
-		System.out.println(ret_val);
-		System.out.println(path);
+		System.out.println("Node to Root Path exist : " + ret_val);
+		System.out.println("Path : " + path);
 
 	}
 	

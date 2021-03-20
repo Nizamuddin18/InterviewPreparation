@@ -21,6 +21,7 @@ public class LinkedListExample {
 		System.out.println("12.Remove duplicates from a sorted linked list");
 		System.out.println("13.Linked List To Stack");
 		System.out.println("14.Fold LinkedList");
+		System.out.println("15.Segregate Odd evn Linked List");
 		while(true){
 			System.out.println("Enter Choice : ");
 			int choice = sc.nextInt();
@@ -129,6 +130,10 @@ public class LinkedListExample {
 				}
 			case 14 : 
 				l.foldLinkedList();
+				break;
+			case 15 : 
+				l.oddEvenSegregate();
+				l.printList();
 				break;
 			default :
 				System.exit(0);

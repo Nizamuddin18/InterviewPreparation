@@ -18,7 +18,7 @@ class Node{
 	
 }
 public class LinkedListPrep {
-	static Node head;
+	Node head;
 	Node tail;
 	int size;
 	
@@ -44,7 +44,16 @@ public class LinkedListPrep {
 		}
 		size++;
 	}
-	
+	public int getFirst(){
+		int retVal = 0;
+		if(this.size == 0){
+			System.out.println("Underflow");
+			retVal = -1;
+		}else{
+			retVal = this.head.data;
+		}
+		return retVal;
+	}
 	public void addFirst(int val){
 		Node temp = createNode(val);
 		if(size == 0){
@@ -59,12 +68,12 @@ public class LinkedListPrep {
 	}
 	
 	public void removeFirst(){
+		Node temp = head;
 		if(size == 0){
 			System.out.println("Underflow!");
 			return;
 		}else{
-			Node temp = head;
-			System.out.println("Node deleted : " + temp.data);
+			//System.out.println("Node deleted : " + temp.data);
 			temp = temp.next;
 			head = temp;
 			size--;
@@ -181,7 +190,7 @@ public class LinkedListPrep {
 		return slow.data;
 	}
 	
-	public static Node getMidNode(){
+	public Node getMidNode(){
 		Node fast = head;
 		Node slow = head;
 		while(fast!=null && fast.next!=null){
@@ -274,7 +283,7 @@ public class LinkedListPrep {
 		}
 	}
 	
-	public static void foldLinkedList(){
+	public void foldLinkedList(){
 		Node midNode = getMidNode();
 		Node nHead = midNode.next;
 		midNode.next = null;
@@ -295,5 +304,21 @@ public class LinkedListPrep {
 		}
 		printListCustom(head);
 	}
-	
+	public void oddEvenSegregate(){
+		LinkedListPrep oddll = new LinkedListPrep();
+		LinkedListPrep evenll = new LinkedListPrep(); 
+		while(this.size > 0){
+			int val = this.getFirst();
+			this.removeFirst();
+			if(val%2 == 0){
+				evenll.addLast(val);
+			}else{
+				oddll.addLast(val);
+			}	
+		}
+		oddll.tail.next = evenll.head;
+		this.head = oddll.head;
+		this.tail = evenll.tail;
+		this.size = oddll.size + evenll.size;
+	}
 }
