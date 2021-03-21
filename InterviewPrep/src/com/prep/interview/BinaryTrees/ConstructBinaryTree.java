@@ -60,5 +60,25 @@ public class ConstructBinaryTree {
 		    display(node.right);
 		  }
 	  
-	
+	public Node getTreeRoot(){
+		Node root = new Node(50,null,null);
+		//Left Sub Tree
+		root.left = new Node(25,null,null);
+		root.left.left = new Node(12,null,null);
+		root.left.right = new Node(37,null,null);
+		root.left.right.left = new Node(30,null,null);
+		
+		//Right Sub Tree
+		root.right= new Node(75,null,null);
+		root.right.left = new Node(62,null,null);
+		root.right.left.left = new Node(60,null,null);
+		root.right.left.right = new Node(70,null,null);
+		root.right.left.right.left = new Node(68,null,null);
+		
+		root.right.right = new Node(87,null,null);
+		root.right.right.right = new Node(89,null,null);
+		root.right.right.right.left = new Node(85,null,null);
+		root.right.right.right.right = new Node(99,null,null);
+		return root;
+	}
 }

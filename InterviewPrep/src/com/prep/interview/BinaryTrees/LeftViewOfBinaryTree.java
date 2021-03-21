@@ -1,6 +1,7 @@
 package com.prep.interview.BinaryTrees;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Queue;
 
 public class LeftViewOfBinaryTree {
@@ -18,11 +19,36 @@ public class LeftViewOfBinaryTree {
 		root.right.left = new Node(62,null,null);
 		root.right.right = new Node(87,null,null);
 		root.right.left.right = new Node(70,null,null);
-		System.out.print("Left View of Binary Tree Iterative : ");
+		/*System.out.print("Left View of Binary Tree Iterative : ");
 		tree.leftViewOfBinaryTreeIterative(root);
 		System.out.print("Left View of Binary Tree Recursive : ");
-		tree.leftViewOfBinaryTreeRecursive(root , 0);
+		tree.leftViewOfBinaryTreeRecursive(root , 0);*/
+		ArrayList<Integer> ans = tree.leftView(root);
+		System.out.println(ans);
 	}
+	
+	 ArrayList<Integer> leftView(Node root)
+	    {
+	      	ArrayList<Integer> ans = new ArrayList<>();
+			Queue<Node> queue = new ArrayDeque<>();
+			queue.add(root);
+			while(!queue.isEmpty()){
+				int size = queue.size();
+				for(int i = 0 ; i < size ; i++){
+					Node rem = queue.remove();
+					if(i == 0){
+						ans.add(rem.val);
+					}
+					if(rem.left!=null){
+						queue.add(rem.left);
+					}
+					if(rem.right!=null){
+						queue.add(rem.right);
+					}
+				}
+			}
+	      return ans;
+	    }
 	private void leftViewOfBinaryTreeRecursive(Node node , int level){
 		if(node == null)
 			return;
