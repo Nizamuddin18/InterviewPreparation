@@ -1,6 +1,5 @@
 package com.prep.interview.BinaryTrees;
 import java.util.*;
-import com.prep.interview.BinaryTrees.PrintKLevelsDown;
 public class PrintKDistanceFar {
 
 	public static void main(String[] args) {
@@ -21,13 +20,13 @@ public class PrintKDistanceFar {
 		root.right.right = new Node(87,null,null);
 		tree.display(root);
 		ArrayList<Node> path = new ArrayList<>();
-		int k = 2;
+		int k = 1;
 		boolean pathToRoot = ntrp.findNodeToRootPath(root, 75, path);
 		p.printklevelsFar(root, path, k);
 	}
 	
 	private void printklevelsFar(Node node, ArrayList<Node> path , int k){
-		System.out.println(path);
+		System.out.println("Node to Root Path : " + path);
 		for(int  i = 0 ; i < path.size() ; i++){
 			printKLevelsDown(path.get(i), k-i , i==0 ? null : path.get(i));
 		}

@@ -15,7 +15,7 @@ public class NodeToRootPath {
 
 	}
 	
-	public boolean findNodeToRootPath(Node node , int data , ArrayList<Node> path){
+	public boolean findNodeToRootPath(Node node , int data , ArrayList<Node> path){//Initially root is passed
 		if(node == null)
 			return false;
 		if(node.val == data){
