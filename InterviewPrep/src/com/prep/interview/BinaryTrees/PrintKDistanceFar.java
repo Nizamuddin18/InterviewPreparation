@@ -6,29 +6,20 @@ public class PrintKDistanceFar {
 		ConstructBinaryTree tree = new ConstructBinaryTree();
 		NodeToRootPath ntrp = new NodeToRootPath();
 		PrintKDistanceFar p = new PrintKDistanceFar();
-		//Integer arr[] = {50 ,25 ,12 ,null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null};
-		
-		//Node root = tree.constructBinaryTree(arr);
-		Node root = new Node(50,null,null);
-		root.left = new Node(25,null,null);
-		root.left.left = new Node(12,null,null);
-		root.left.right = new Node(37,null,null);
-		root.left.right.left = new Node(30,null,null);
-		root.right= new Node(75,null,null);
-		root.right.left = new Node(62,null,null);
-		root.right.left.right = new Node(70,null,null);
-		root.right.right = new Node(87,null,null);
-		tree.display(root);
+		Node root = tree.getTreeRoot();	
 		ArrayList<Node> path = new ArrayList<>();
-		int k = 1;
-		boolean pathToRoot = ntrp.findNodeToRootPath(root, 75, path);
+		int k = 3;
+		int inputElement = 75;
+		System.out.println("::::: K Distance Far :::::");
+		System.out.println("Input => k : " + k  + " and " + " Input Number : " + inputElement);
+		System.out.println("Does Node To Root Path exist ? " + ntrp.findNodeToRootPath(root, inputElement, path));
+		System.out.print("Nodes that are " + k + " levels far from " + inputElement + " are : ");
 		p.printklevelsFar(root, path, k);
 	}
 	
 	private void printklevelsFar(Node node, ArrayList<Node> path , int k){
-		System.out.println("Node to Root Path : " + path);
 		for(int  i = 0 ; i < path.size() ; i++){
-			printKLevelsDown(path.get(i), k-i , i==0 ? null : path.get(i));
+			printKLevelsDown(path.get(i), k-i , i==0 ? null : path.get(0));
 		}
 		
 	}
