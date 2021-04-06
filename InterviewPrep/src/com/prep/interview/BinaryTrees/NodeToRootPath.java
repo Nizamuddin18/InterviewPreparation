@@ -10,7 +10,7 @@ public class NodeToRootPath {
 		int data = 70;
 		ArrayList<Node> path = new ArrayList<>();
 		boolean ret_val = ntrp.findNodeToRootPath(root , data , path);
-		System.out.println("Node to Root Path exist : " + ret_val);
+		System.out.println("Does for given Node(" + data + ") any Path to Root exist ? " + ret_val);
 		System.out.println("Path : " + path);
 
 	}
@@ -19,7 +19,7 @@ public class NodeToRootPath {
 		if(node == null)
 			return false;
 		if(node.val == data){
-			path.add(node);
+			path.add(node);//the given node matches thus this path will be added
 			return true;
 		}
 		boolean leftChild = findNodeToRootPath(node.left , data , path);
