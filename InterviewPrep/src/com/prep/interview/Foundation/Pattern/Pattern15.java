@@ -4,9 +4,11 @@ public class Pattern15 {
 	private static void printPatternUsingStarSpace(int n) {
 		int nst = 1;
 		int nsp = n/2;
-		int count;
+		int count = 0;
 		for(int i = 0 ; i < n ; i++){
-			count = i+1;
+			if(i <= n/2){
+				count = i+1;
+			}
 			for(int sp = 0 ; sp < nsp ; sp++){
 				System.out.print("\t");
 			}
