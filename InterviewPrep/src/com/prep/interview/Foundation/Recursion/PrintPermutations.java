@@ -7,11 +7,11 @@ public class PrintPermutations {
 			return;
 		}
 		for(int i = 0 ; i < ques.length() ; i++){
-			char ch = ques.charAt(0);
+			char ch = ques.charAt(i);
 			String firstPart = ques.substring(0,i);
 			String lastPart = ques.substring(i+1);
 			String roq = firstPart + lastPart;
-			printPermutations(roq , ch + ansf);
+			printPermutations(roq ,  ansf + ch);
 		}
 		
 	}
