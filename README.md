@@ -114,17 +114,17 @@ This is a complete Educational Project.Any suggestions are welcome
 ## ListofTopics
 * [Array]
 * [String]
-* [Searching & Sorting]
+* [Searching & Sorting](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Foundation/SearchingSorting)
 * [Linked List](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/LinkedList)
-* [Recursion](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/Recursion)
-* [Backtracking](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/BackTracking)
-* [Binary Trees](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/BinaryTrees)
+* [Recursion](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Foundation/Recursion)
+* [Backtracking](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/BackTracking)
+* [Binary Trees](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/BinaryTrees)
 * [Binary Search Trees]
-* [Heaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/HashMapFoundation)
-* [HashMaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/HashmapHeaps)
-* [Stacks & Queues](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/Stacks)
-* [Dynamic Programming](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/DynamicProgramming)
-* [Graphs](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/Graph)
+* [Heaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/HashMapFoundation)
+* [HashMaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/HashmapHeaps)
+* [Stacks & Queues](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Stacks)
+* [Dynamic Programming](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/DynamicProgramming)
+* [Graphs](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Graph)
 * [Greedy]
 * [Bit Manipulation]
 * [Trie]
