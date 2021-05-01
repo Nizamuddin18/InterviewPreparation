@@ -18,7 +18,9 @@ public class PrintMazePaths {
 	}
 	 public static void main(String[] args) throws Exception {
          Scanner sc  = new Scanner(System.in);
+         System.out.println("Enter destination Row : ");
          int n = sc.nextInt(); // rows
+         System.out.println("Enter destination Column : ");
          int m = sc.nextInt(); // cols
          printMazePaths(0 , 0 , n-1 , m-1 , "");
 	    }

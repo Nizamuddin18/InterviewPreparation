@@ -6,10 +6,7 @@ package com.prep.interview.Recursion;
 public class NQueens {
 
 	public static void main(String[] args) {
-		int board[][] = {{0 , 0, 0 ,0},
-						{0 , 0, 0 ,0},
-						{0 , 0, 0 ,0},
-						{0 , 0, 0 ,0}};
+		int board[][] = new int[4][4];
 		placeQueens(board , 0  , ""); // source is 0,0
 
 	}
@@ -26,7 +23,7 @@ public class NQueens {
 		for(int  col = 0; col < board[0].length ; col++){ // for each col for every row
 			if(isValid(board , row , col) == true){ // check whether the position is valid
 				board[row][col] = 1; // place the queen 
-				placeQueens(board , row + 1 , asf + row + " - " + col + " , "); /* call for the next row and if the queen can be placed 
+				placeQueens(board , row + 1 , asf + "(" + row + " - " + col + "), "); /* call for the next row and if the queen can be placed 
 				in any cell at next row.If no Queen can be placed at next row then backtrack*/
 				board[row][col] = 0; // remove the queen
 			}
