@@ -115,7 +115,7 @@ This is a complete Educational Project.Any suggestions are welcome
 * [Array]
 * [String]
 * [Searching & Sorting]
-* [Linked List](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/LinkedList)
+* [Linked List](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/LinkedList)
 * [Recursion](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/Recursion)
 * [Backtracking](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/BackTracking)
 * [Binary Trees](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPrep/src/com/prep/interview/BinaryTrees)
