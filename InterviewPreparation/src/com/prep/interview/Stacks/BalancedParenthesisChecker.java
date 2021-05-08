@@ -50,7 +50,7 @@ public class BalancedParenthesisChecker {
 	}
 	public static void main(String[] args) {
 		System.out.println("::::: Boolean Valid Balanced Parenthsis Check :::::");
-		String str = "[{(a+b) + (c-d)} * {(e/f)}]";
+		String str = "[(a + b) + {(c + d) * (e / f)]}";
 		Stack<Character> st = new Stack<>();
 		System.out.println("Input String  : " + str);
 		boolean ans = isValid(str , st);
