@@ -2,7 +2,7 @@ package com.prep.interview.Stacks;
 
 import java.util.Stack;
 
-public class LargestAreaHistogram {
+public class MaximalRectangle {
 	private static int[] getNearestSmallerToLeft(int[] arr) {
 		// {1,8,6,2,5,4,8,3,7}
 		int ret_arr[] = new int[arr.length];
@@ -66,14 +66,7 @@ public class LargestAreaHistogram {
 		}
 		return max;
 	}
-	
-	private static void display(int arr[]){
-		for(int i = 0 ; i < arr.length ; i++){
-			System.out.print(arr[i] + " ");
-		}
-		System.out.println();
-	}
-	
+		
 	private static int getLargestAreaHist(int arr[]){
 		int nsr1[] = getNearestSmallerToRight(arr); // getNearestSmallerToRight(arr);
 		int nsl1[] = getNearestSmallerToLeft(arr); //getNearestSmallerToLeft(arr); 
@@ -81,10 +74,27 @@ public class LargestAreaHistogram {
 		int max = checkMaxFromArea(res_arr); 
 		return max;
 	}
-	public static void main(String[] args) {
-		int arr[] = { 6, 2, 5, 4, 5, 1, 6 };
-		int histogram = getLargestAreaHist(arr);
-		System.out.println("Largest Area Histogram : " + histogram);
-	}
 
+	public static void main(String[] args) {
+		int matrix[][] = {{1,0,1,0,0},
+						{1,0,1,1,1},
+						{1,1,1,1,1},
+						{1,0,0,1,0}};
+		int res[] = new int[matrix[0].length];
+		for(int j = 0 ; j < matrix[0].length ; j++){
+			res[j] = matrix[0][j];
+		}
+		int mx = getLargestAreaHist(res);
+		for(int i = 1 ; i < matrix.length ; i++){
+			for(int j = 0 ; j < matrix[0].length ; j++){
+				if(matrix[i][j] == 0){
+					res[j] = 0;
+				}else{
+					res[j] = res[j] + matrix[i][j];
+				}
+			}
+			mx = Math.max(mx, getLargestAreaHist(res));
+		}
+		System.out.println("Maximal Area in Binary Matrix : " + mx);
+	}
 }

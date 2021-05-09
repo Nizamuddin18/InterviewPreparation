@@ -1,54 +1,29 @@
 package com.prep.interview.Stacks;
-
 import java.util.Stack;
-class PairStack{
-	int index;
-	int data;
-	PairStack(int index , int data){
-		this.index = index;
-		this.data = data;
-	}
-}
+
 public class SlidingWindowMaximum {
-	public static int[] bruteForce(int arr[] , int k){
-		int len = arr.length-k+1;
-		int res[] = new int[len];
-		for(int i = 0 ; i < len; i++){
-			int max = Integer.MIN_VALUE;
-			for(int j = i ; j < i+k ; j++){
-				if(arr[j] > max)
-					max = arr[j];
-			}
-			res[i] = max;
-		}
-		return res;
-	}
 	
-	public static void method1(int arr[] , int k){
+	public static int[] slidingWindowMax(int arr[] , int k){
 		int len = arr.length - k + 1;
 		int res[] = new int[len];
 		int ngr[] = new int[arr.length];
-		Stack<PairStack> stack = new Stack<>();
+		Stack<Integer> st = new Stack<>();
 		for(int i = arr.length - 1 ; i >= 0 ; i--){
-			if(stack.isEmpty()){
+			if(st.isEmpty()){
 				ngr[i] = arr.length;
-			}else if(!stack.isEmpty() && stack.peek().data > arr[i]){
-				ngr[i] = stack.peek().index;
-			}else if(!stack.isEmpty() && stack.peek().data <= arr[i]){
-				while(!stack.isEmpty() && stack.peek().data <= arr[i])
-					stack.pop();
-				if(stack.isEmpty())
+			}else if(!st.isEmpty() && arr[st.peek()] > arr[i]){
+				ngr[i] = st.peek();
+			}else if(!st.isEmpty() && arr[st.peek()] <= arr[i]){
+				while(!st.isEmpty() && arr[st.peek()] <= arr[i])
+					st.pop();
+				if(st.isEmpty())
 					ngr[i] = arr.length;
 				else
-					ngr[i] = stack.peek().index;
+					ngr[i] = st.peek();
 			}
-			PairStack pair = new PairStack(i , arr[i]);
-			stack.push(pair);
+			st.push(i);
 		}
-		/*System.out.print("Nearest Greater Element To Right Method2: ");
-		for(int i = 0 ; i < nge.length ; i++)
-			System.out.print(nge[i] + " ");
-		System.out.println();*/
+
 		int j = 0;
 		for(int i = 0 ; i < len ; i++){
 			if(j < i){
@@ -59,25 +34,23 @@ public class SlidingWindowMaximum {
 			}
 			res[i] = j;
 		}
-		
-		System.out.print("Output:");
-		for(int i = 0 ; i < len ; i++){
-			System.out.print(arr[res[i]] + " ");
-		}
-		System.out.println();
+		return res;
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int arr[] = {1,2,3,1,4,5,2,3,6};
-		int k = 3;
+		int arr[] = {2,9,3,8,1,7,12,6,14,4,32,0,7,19,8,12,6};
+		int k = 4;
 		int res[];
 		System.out.println("-----Sliding Window Maximum(LeetCode 239)-----");
 		System.out.print("Input :");
 		for(int i = 0 ; i < arr.length ; i++)
 			System.out.print(arr[i] + " ");
 		System.out.println();
-		//res = bruteForce(arr , k);
-		method1(arr,k);
+		res = slidingWindowMax(arr,k);
+		System.out.print("Output:");
+		for(int i = 0 ; i < res.length ; i++){
+			System.out.print(arr[res[i]] + " ");
+		}
+		System.out.println();
 	}
 }

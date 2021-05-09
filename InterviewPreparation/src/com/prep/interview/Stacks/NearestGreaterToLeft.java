@@ -1,27 +1,41 @@
 package com.prep.interview.Stacks;
 import java.util.*;
 public class NearestGreaterToLeft {
+	
+	private static void display(int arr[]){
+		for(int i = 0 ; i < arr.length ; i++){
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
 
-	public static void main(String[] args) {
-		int arr[] = {1,3,2,4};
+	private static int[] getGreaterToLeft(int arr[]){
+		int res[] = new int[arr.length];
 		Stack<Integer> st = new Stack<>();
-		ArrayList<Integer> list = new ArrayList<>();
 		for(int i = 0 ; i < arr.length ; i++){
 			if(st.isEmpty()){
-				list.add(-1);
+				res[i] = -1;
 			}else if(!st.isEmpty() && st.peek() > arr[i]){
-				list.add(st.peek());
+				res[i] = st.peek();
 			}else if(!st.isEmpty() && st.peek() <= arr[i]){
 				while(!st.isEmpty() && st.peek() <= arr[i])
 					st.pop();
 				if(st.isEmpty())
-					list.add(-1);
+					res[i] = -1;
 				else
-					list.add(st.peek());
+					res[i] = st.peek();
 			}
 			st.push(arr[i]);
 		}
-		System.out.println("List : " + list);
+		return res;
 	}
-
+	
+	public static void main(String[] args) {
+		int arr[] = {4,5,2,10,8};
+		System.out.println("Input Array : ");
+		display(arr);
+		int res[] = getGreaterToLeft(arr);
+		System.out.println("Nearest Greater Element to Left : ");
+		display(res);
+	}
 }
