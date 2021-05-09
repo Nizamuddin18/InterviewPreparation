@@ -8,6 +8,7 @@ public class SlidingWindowMaximum {
 		int res[] = new int[len];
 		int ngr[] = new int[arr.length];
 		Stack<Integer> st = new Stack<>();
+		// =========== NGR Index ===================
 		for(int i = arr.length - 1 ; i >= 0 ; i--){
 			if(st.isEmpty()){
 				ngr[i] = arr.length;
@@ -23,7 +24,7 @@ public class SlidingWindowMaximum {
 			}
 			st.push(i);
 		}
-
+		// ======== Jumping from NGR to NGR =========
 		int j = 0;
 		for(int i = 0 ; i < len ; i++){
 			if(j < i){
@@ -41,7 +42,7 @@ public class SlidingWindowMaximum {
 		int arr[] = {2,9,3,8,1,7,12,6,14,4,32,0,7,19,8,12,6};
 		int k = 4;
 		int res[];
-		System.out.println("-----Sliding Window Maximum(LeetCode 239)-----");
+		System.out.println("::::: Sliding Window Maximum(LeetCode 239) :::::");
 		System.out.print("Input :");
 		for(int i = 0 ; i < arr.length ; i++)
 			System.out.print(arr[i] + " ");
