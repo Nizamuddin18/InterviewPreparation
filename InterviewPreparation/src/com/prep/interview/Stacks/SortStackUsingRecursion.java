@@ -31,7 +31,7 @@ public class SortStackUsingRecursion {
 		st.push(4);
 		System.out.println("Stack before Sorting : " + st);
 		sort(st);
-		System.out.println("Stack after Sorting : " + st);
+		System.out.println("Stack after  Sorting : " + st);
 	}
 
 }

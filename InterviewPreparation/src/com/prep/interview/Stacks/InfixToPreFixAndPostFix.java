@@ -30,7 +30,7 @@ public class InfixToPreFixAndPostFix {
 				}
 				oprt.push(ch);
 			}else{
-				String s = Character.toString(ch);
+				String s = ch + "";
 				opnd.push(s);
 			}
 		}
