@@ -53,6 +53,7 @@ public class QueueToStack2 {
 
 	public static void main(String[] args) {
 		QueueToStack2 stack = new QueueToStack2();
+		System.out.println("Queue to Stack Adapter (Push Efficient) : ");
 		stack.push(10);
 		stack.push(20);
 		stack.push(5);
@@ -60,9 +61,16 @@ public class QueueToStack2 {
 		stack.push(2);
 		stack.push(4);
 		stack.push(11);
+		System.out.println("Push 10");
+		System.out.println("Push 20");
+		System.out.println("Push 5");
+		System.out.println("Push 8");
+		System.out.println("Push 2");
+		System.out.println("Push 4");
+		System.out.println("Push 11");
 		System.out.println("Top : " + stack.top());
 		System.out.println("Pop : " + stack.pop());
-		System.out.println("Stack : " + stack.mainQ);
+		System.out.println("Print Stack : " + stack.mainQ);
 		System.out.println("Top : " + stack.top());
 	}
 
