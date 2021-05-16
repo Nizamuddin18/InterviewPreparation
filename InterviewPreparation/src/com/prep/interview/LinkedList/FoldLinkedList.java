@@ -10,7 +10,7 @@ public class FoldLinkedList {
 		Node(){}
 	}
 	public static void main(String[] args) {
-		LinkedListPrep list = new LinkedListPrep();
+		LinkedListCustom list = new LinkedListCustom();
 
 	}
 

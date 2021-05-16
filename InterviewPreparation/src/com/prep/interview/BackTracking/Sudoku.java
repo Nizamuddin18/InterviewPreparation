@@ -28,8 +28,8 @@ public class Sudoku {
 		int nj = 0;
 		//if this is the last cell for that particular row
 		if(col == board[0].length -1){
-			ni = row + 1; // if all the columns for that particular row is checked, update the row by 1 
-			nj = 0; // make col again 0 for new row
+			ni = row + 1; 	// if all the columns for that particular row is checked, update the row by 1 
+			nj = 0; 		// make col again 0 for new row
 		}
 		//if more cells are present for that particular row
 		else{
@@ -43,13 +43,13 @@ public class Sudoku {
 		else{
 			for(int  i = 1 ; i<=9 ; i++){//check for all the possible options ranging from 1...9
 				if(isValid(board , row , col , i) == true){ // if the option is valid
-					board[row][col] = i; // update the cell to that particular option
-					sudokuSolve(board , ni , nj); // next recursive call
-					board[row][col] = 0; // if in future because of this option other option cannot be placed with rest of the row,column,submatrix -->  then backtrack
+					board[row][col] = i; 					// update the cell to that particular option
+					sudokuSolve(board , ni , nj); 			// next recursive call
+					board[row][col] = 0; 					
+					// if in future because of this option other option cannot be placed with rest of the row,column,submatrix -->  then backtrack
 				}
 			}
 		}
-
 	}
 
 	private static void display(int[][] board) {
@@ -87,7 +87,4 @@ public class Sudoku {
 		}
 		return true;
 	}
-	
-
-
 }

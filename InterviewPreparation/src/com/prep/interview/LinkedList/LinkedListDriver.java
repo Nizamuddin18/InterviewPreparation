@@ -2,13 +2,13 @@ package com.prep.interview.LinkedList;
 
 import java.util.Scanner;
 
-public class LinkedListExample {
+public class LinkedListDriver {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("========Linked List Operations========");
-		LinkedListPrep l = new LinkedListPrep();
-		System.out.println("1.Print List");
+		System.out.println("======== Linked List Operations ========");
+		LinkedListCustom l = new LinkedListCustom();
+		System.out.println("1.Display LinkedList");
 		System.out.println("2.Add First to LinkedList");
 		System.out.println("3.Add Last to LinkedList");
 		System.out.println("4.Size of LinkedList");
@@ -22,6 +22,9 @@ public class LinkedListExample {
 		System.out.println("13.Linked List To Stack");
 		System.out.println("14.Fold LinkedList");
 		System.out.println("15.Segregate Odd evn Linked List");
+		System.out.println("16.Remove First from LinkedList");
+		System.out.println("17.Remove Last from LinkedList");
+		System.out.println("18.Remove At from LinkedList");
 		while(true){
 			System.out.println("Enter Choice : ");
 			int choice = sc.nextInt();
@@ -135,7 +138,22 @@ public class LinkedListExample {
 				l.oddEvenSegregate();
 				l.printList();
 				break;
+			case 16 : 
+				l.removeFirst();
+				l.printList();
+				break;
+			case 17 : 
+				l.removeLast();
+				l.printList();
+				break;
+			case 18 : 
+				System.out.println("Enter Position to be Removed : ");
+				int pos = sc.nextInt();
+				l.removeAt(pos);
+				l.printList();
+				break;
 			default :
+				System.out.println("Quit...");
 				System.exit(0);
 			}
 		}

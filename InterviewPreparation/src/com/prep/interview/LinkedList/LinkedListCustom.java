@@ -1,23 +1,13 @@
 package com.prep.interview.LinkedList;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 class Node{
 	int data;
 	Node next;
-	
-	public Node(int data){
-		this.data = data;
-	}
-	
-	public Node(){
-		
-	}
+	public Node(int data){this.data = data;} // Parameterized Constructor
+	public Node(){} //Default Constructor
 	
 }
-public class LinkedListPrep {
+public class LinkedListCustom{
 	Node head;
 	Node tail;
 	int size;
@@ -44,16 +34,50 @@ public class LinkedListPrep {
 		}
 		size++;
 	}
+	
 	public int getFirst(){
 		int retVal = 0;
 		if(this.size == 0){
-			System.out.println("Underflow");
+			System.out.println("List is empty");
 			retVal = -1;
 		}else{
 			retVal = this.head.data;
 		}
 		return retVal;
 	}
+	
+	public Node getAt(int index){
+		if(size == 0){
+			System.out.println("List is empty");
+			return null;
+		}
+		if(index < 0 || index > size){
+			System.out.println("Invalid Index");
+			return null;
+		}else{
+			Node temp = head;
+			for(int  i = 0;i < index ; i++)
+				temp = temp.next;
+			return temp;	
+		}
+	}
+	
+	public int getAtValue(int index){
+		if(size == 0){
+			System.out.println("List is empty");
+			return -1;
+		}
+		if(index < 0 || index > size){
+			System.out.println("Invalid arguments");
+			return -1;
+		}else{
+			Node temp = head;
+			for(int  i = 0;i < index ; i++)
+				temp = temp.next;
+			return temp.data;	
+		}
+	}
+	
 	public void addFirst(int val){
 		Node temp = createNode(val);
 		if(size == 0){
@@ -67,21 +91,71 @@ public class LinkedListPrep {
 		size++;
 	}
 	
-	public void removeFirst(){
+	public int removeFirst(){
 		Node temp = head;
+		int val = 0;
 		if(size == 0){
-			System.out.println("Underflow!");
-			return;
+			System.out.println("List is empty");
+			return -1;
 		}else{
-			//System.out.println("Node deleted : " + temp.data);
+			val = temp.data;
 			temp = temp.next;
 			head = temp;
 			size--;
 		}
+		return val;
 	}
+	
+	public int removeLast(){
+		if(size == 0){
+			System.out.println("List is empty");
+			return -1;
+		}else if(size == 1){
+			return handleRemoveWhenSize1();
+		}else{
+			Node nm1 = getNthNode(this.size - 2);
+            int val = this.tail.data;
+            nm1.next = null;
+            this.tail = nm1;
+            this.size--;
+            return val;
+		}
+	}
+	
+	public int removeAt(int indx) {
+        if(indx < 0 || indx >= this.size) {
+            return -1;
+        } else if(indx == 0) {
+            return removeFirst();
+        } else if(indx == this.size - 1) {
+            return removeLast();
+        } else {
+            Node nm1 = getNthNode(indx - 1);
+            int val = nm1.next.data;
+            nm1.next = nm1.next.next;
+            this.size--;
+            return val;
+        }
+    }
+	
+	private int handleRemoveWhenSize1() {
+        int val = this.head.data;
+        this.head = this.tail = null;
+        this.size = 0;
+        return val;
+    }
+	
+	private Node getNthNode(int pos) {
+		Node temp = this.head;
+		for (int i = 0; i < pos; i++) {
+			temp = temp.next;
+		}
+		return temp;
+	}
+	 
 	public void printList(){
 		Node temp = head;
-		System.out.print("[ ");
+		System.out.print("[");
 		while(temp!=null){
 			System.out.print(temp.data + " ");
 			temp = temp.next;
@@ -90,6 +164,7 @@ public class LinkedListPrep {
 		System.out.println();
 
 	}
+	
 	public static void printListCustom(Node temp){
 		System.out.print("[ ");
 		while(temp!=null){
@@ -135,6 +210,7 @@ public class LinkedListPrep {
 		Node prev = null;
 		Node cur = head;
 		Node temp = cur;
+		tail = head;
 		while(temp!=null){
 			temp = temp.next;
 			cur.next = prev;
@@ -156,6 +232,7 @@ public class LinkedListPrep {
 		}
 		return prev;
 	}
+	
 	public void addAtIndex(int index , int val){
 		Node temp = head;
 		Node node = createNode(val);
@@ -199,6 +276,7 @@ public class LinkedListPrep {
 		}
 		return slow;
 	}
+	
 	public Node getMiddleNode(Node start , Node end){
 		Node fast = head;
 		Node slow = head;
@@ -208,24 +286,25 @@ public class LinkedListPrep {
 		}
 		return slow;
 	}
-	public LinkedListPrep mergeSort(Node start , Node end){
+	
+	public LinkedListCustom mergeSort(Node start , Node end){
 		if(start == end){
-			LinkedListPrep baseResult = new LinkedListPrep();
+			LinkedListCustom baseResult = new LinkedListCustom();
 			baseResult.addLast(start.data);
 			return baseResult;
 		}
 		
 		Node mid = getMiddleNode(start , end);
-		LinkedListPrep fsh = mergeSort(start , mid);
-		LinkedListPrep ssh = mergeSort(mid.next , end);
-		LinkedListPrep sortedList = mergeAndSortLists(fsh , ssh);
+		LinkedListCustom fsh = mergeSort(start , mid);
+		LinkedListCustom ssh = mergeSort(mid.next , end);
+		LinkedListCustom sortedList = mergeAndSortLists(fsh , ssh);
 		return sortedList;
 	}
 
-	private LinkedListPrep mergeAndSortLists(LinkedListPrep fsh, LinkedListPrep ssh) {
+	private LinkedListCustom mergeAndSortLists(LinkedListCustom fsh, LinkedListCustom ssh) {
 		Node one = fsh.head;
 		Node two = ssh.head;
-		LinkedListPrep list = new LinkedListPrep();
+		LinkedListCustom list = new LinkedListCustom();
 		while(one!=null && two!=null){
 			if(one.data < two.data){
 				list.addLast(one.data);
@@ -245,23 +324,7 @@ public class LinkedListPrep {
 		}		
 		return list;
 	}
-	
-	public Node getAt(int index){
-		if(size == 0){
-			System.out.println("Underflow");
-			return null;
-		}
-		if(index < 0 || index > size){
-			System.out.println("Invalid Index");
-			return null;
-		}else{
-			Node temp = head;
-			for(int  i = 0;i < index ; i++)
-				temp = temp.next;
-			return temp;	
-		}
-	}
-	
+
 	public void removeDuplicate(){
 		Node cur = head;
 		while(cur!=null && cur.next!=null){
@@ -272,6 +335,7 @@ public class LinkedListPrep {
 			cur = cur.next;
 		}
 	}
+	
 	public void checkTop(){
 		if(size == 0){
 			System.out.println("Stack Underflow!");
@@ -304,9 +368,10 @@ public class LinkedListPrep {
 		}
 		printListCustom(head);
 	}
+	
 	public void oddEvenSegregate(){
-		LinkedListPrep oddll = new LinkedListPrep();
-		LinkedListPrep evenll = new LinkedListPrep(); 
+		LinkedListCustom oddll = new LinkedListCustom();
+		LinkedListCustom evenll = new LinkedListCustom(); 
 		while(this.size > 0){
 			int val = this.getFirst();
 			this.removeFirst();
