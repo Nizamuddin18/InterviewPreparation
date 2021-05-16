@@ -47,7 +47,7 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [ListofTopics](#topics)
+* [Topics](#topics)
 * [Contributing](#contributing)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
@@ -111,7 +111,7 @@ This is a complete Educational Project.Any suggestions are welcome
 <!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 <!-- ROADMAP -->
-## ListofTopics
+## Topics
 * [Array]
 * [String]
 * [Searching & Sorting](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Foundation/SearchingSorting)
