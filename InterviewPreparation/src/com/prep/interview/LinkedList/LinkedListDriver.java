@@ -25,6 +25,7 @@ public class LinkedListDriver {
 		System.out.println("16.Remove First from LinkedList");
 		System.out.println("17.Remove Last from LinkedList");
 		System.out.println("18.Remove At from LinkedList");
+		System.out.println("19.Merge Two Sorted LinkedList");
 		while(true){
 			System.out.println("Enter Choice : ");
 			int choice = sc.nextInt();
@@ -100,9 +101,10 @@ public class LinkedListDriver {
 				l.mergeSort(li, ri);
 				break;
 			case 12 :
-				System.out.println("Input Linked List : ");
+				System.out.println("Before Removal of Duplicates : ");
+				l.printList();
 				l.removeDuplicate();
-				System.out.println("After Removal of Duplicates : ");
+				System.out.println("After Removal of Duplicates  : ");
 				l.printList();
 				break;
 			case 13 : 
@@ -151,6 +153,25 @@ public class LinkedListDriver {
 				int pos = sc.nextInt();
 				l.removeAt(pos);
 				l.printList();
+				break;
+			case 19 :
+				LinkedListCustom l1 = new LinkedListCustom();
+				LinkedListCustom l2 = new LinkedListCustom();
+				l1.addLast(5);
+				l1.addLast(10);
+				l1.addLast(15);
+				System.out.print("List1 : ");
+				l1.printList();
+				
+				l2.addLast(2);
+				l2.addLast(3);
+				l2.addLast(20);
+				System.out.print("List2 : ");
+				l2.printList();
+				l.head = l.mergeTwoSortedLists(l1.head , l2.head);
+				System.out.print("Sorted List : ");
+				l.printList();
+				
 				break;
 			default :
 				System.out.println("Quit...");

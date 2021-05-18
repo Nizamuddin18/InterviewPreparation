@@ -5,6 +5,10 @@ class Node{
 	Node next;
 	public Node(int data){this.data = data;} // Parameterized Constructor
 	public Node(){} //Default Constructor
+	@Override
+	public String toString() {
+		return "Node[" + data + "]";
+	}
 	
 }
 public class LinkedListCustom{
@@ -155,7 +159,7 @@ public class LinkedListCustom{
 	 
 	public void printList(){
 		Node temp = head;
-		System.out.print("[");
+		System.out.print("[ ");
 		while(temp!=null){
 			System.out.print(temp.data + " ");
 			temp = temp.next;
@@ -292,18 +296,17 @@ public class LinkedListCustom{
 			LinkedListCustom baseResult = new LinkedListCustom();
 			baseResult.addLast(start.data);
 			return baseResult;
-		}
-		
+		}	
 		Node mid = getMiddleNode(start , end);
-		LinkedListCustom fsh = mergeSort(start , mid);
-		LinkedListCustom ssh = mergeSort(mid.next , end);
-		LinkedListCustom sortedList = mergeAndSortLists(fsh , ssh);
+		LinkedListCustom first = mergeSort(start , mid);
+		LinkedListCustom second = mergeSort(mid.next , end);
+		LinkedListCustom sortedList = mergeSortedLists(first , second);
 		return sortedList;
 	}
 
-	private LinkedListCustom mergeAndSortLists(LinkedListCustom fsh, LinkedListCustom ssh) {
-		Node one = fsh.head;
-		Node two = ssh.head;
+	private LinkedListCustom mergeSortedLists(LinkedListCustom list1, LinkedListCustom list2) {
+		Node one = list1.head;
+		Node two = list2.head;
 		LinkedListCustom list = new LinkedListCustom();
 		while(one!=null && two!=null){
 			if(one.data < two.data){
@@ -329,7 +332,7 @@ public class LinkedListCustom{
 		Node cur = head;
 		while(cur!=null && cur.next!=null){
 			Node temp = cur;
-			while(temp.next.data == temp.data)
+			while(temp.next!=null && temp.next.data == temp.data)
 				temp = temp.next;
 			cur.next = temp.next;
 			cur = cur.next;
@@ -385,5 +388,31 @@ public class LinkedListCustom{
 		this.head = oddll.head;
 		this.tail = evenll.tail;
 		this.size = oddll.size + evenll.size;
+	}
+
+	public Node mergeTwoSortedLists(Node head1, Node head2) {
+		Node dummyNode = new Node(-1);
+		Node prev = dummyNode;
+		Node temp1 = head1;
+		Node temp2 = head2;
+		while(temp1!=null && temp2!=null){
+			if(temp1.data < temp2.data){
+				prev.next = temp1;
+				temp1 = temp1.next;
+			}else{
+				prev.next = temp2;
+				temp2 = temp2.next;
+			}
+			prev = prev.next;
+		}
+		while(temp1!=null){
+			prev.next = temp1;
+			temp1 = temp1.next;
+		}
+		while(temp2!=null){
+			prev.next = temp2;
+			temp2=  temp2.next;
+		}
+		return dummyNode.next;
 	}
 }
