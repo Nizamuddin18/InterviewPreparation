@@ -224,12 +224,12 @@ public class LinkedListCustom{
 		head = prev;
 	}
 	
-	public static Node reverseByNode(Node head){
-		Node cur = head;
+	public Node reverseByNode(Node node){
+		Node cur = node;
 		Node prev = null;
-		Node nextNode = null;
+		Node nextNode = node;
 		while(cur!=null){
-			nextNode = cur.next;//backup
+			nextNode = nextNode.next;//backup
 			cur.next = prev; //creates Links
 			prev = cur; //prev moves forward
 			cur = nextNode; //current moves forward
@@ -389,7 +389,30 @@ public class LinkedListCustom{
 		this.tail = evenll.tail;
 		this.size = oddll.size + evenll.size;
 	}
-
+	
+	private Node OddEvenSegregate(Node head){
+		  Node dummyOdd = new Node();
+	      Node dummyEven = new Node();
+	      Node otail = dummyOdd;
+	      Node etail = dummyEven;
+	      Node temp = head;
+	      while(temp!=null){
+	          if(temp.data % 2 == 0){//even
+	              etail.next = temp;
+	              etail = etail.next;
+	          }else{
+	              otail.next = temp;
+	              otail = otail.next;
+	          }
+	          temp = temp.next;
+	      }
+	      otail.next = dummyEven.next;
+	      etail.next = null;
+	      
+	      
+	      return dummyOdd.next;
+	}
+	
 	public Node mergeTwoSortedLists(Node head1, Node head2) {
 		Node dummyNode = new Node(-1);
 		Node prev = dummyNode;
@@ -415,4 +438,58 @@ public class LinkedListCustom{
 		}
 		return dummyNode.next;
 	}
+	
+	public void kReverese(int k){
+		LinkedListCustom prev = null;
+		while(this.size > 0){
+			LinkedListCustom cur = new LinkedListCustom();
+			if(this.size >= k){
+				//remove first from ths and add last to cur
+				for(int i = 0 ; i < k ; i++){
+					int val = this.getFirst();
+					this.removeFirst();
+					cur.addFirst(val);
+				}
+			}else{
+				while(this.size > 0){
+					int val = this.getFirst();
+					this.removeFirst();
+					cur.addLast(val);
+				}
+			}
+			if(prev == null){
+				prev = cur;
+			}else{
+				prev.tail.next = cur.head;
+				prev.tail = cur.tail;
+				prev.size += cur.size;
+			}
+		}
+		this.head = prev.head;
+		this.tail = prev.tail;
+		this.size = prev.size;
+	}
+	
+	public boolean IsPlaindrome(Node node){
+		boolean flag = true;
+		Node mid = getMidNode();
+		Node head2 = mid.next;
+		mid.next = null;
+		head2 = reverseByNode(head2);
+		Node temp1 = this.head;
+		Node temp2 = head2;
+		while(temp1!=null && temp2!=null){
+			if(temp1.data != temp2.data){
+				flag = false;
+				break;
+			}
+			temp1 = temp1.next;
+			temp2 = temp2.next;
+		}
+		head2 = reverseByNode(head2);
+		mid.next = head2;
+		return flag;
+	}
+	
+	
 }

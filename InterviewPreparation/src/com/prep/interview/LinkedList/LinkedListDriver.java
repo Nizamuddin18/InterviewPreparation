@@ -26,8 +26,10 @@ public class LinkedListDriver {
 		System.out.println("17.Remove Last from LinkedList");
 		System.out.println("18.Remove At from LinkedList");
 		System.out.println("19.Merge Two Sorted LinkedList");
+		System.out.println("20.K Reverse LinkedList");
+		System.out.println("21.Is Plaindrome ? ");
 		while(true){
-			System.out.println("Enter Choice : ");
+			System.out.println("Enter Choice (Press -1 to exit) : ");
 			int choice = sc.nextInt();
 			switch(choice){
 			case 1 :
@@ -173,8 +175,19 @@ public class LinkedListDriver {
 				l.printList();
 				
 				break;
+			case 20 : 
+				l.printList();
+				int krev = 3;
+				l.kReverese(krev);
+				l.printList();
+				break;
+			case 21 : 
+				l.printList();
+				boolean ret_flag = l.IsPlaindrome(l.head);
+				System.out.println("Is Plaindrome ? " + ret_flag);
+				break;
 			default :
-				System.out.println("Quit...");
+				System.out.println("...Quit...");
 				System.exit(0);
 			}
 		}
