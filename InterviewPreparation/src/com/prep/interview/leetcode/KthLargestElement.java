@@ -72,7 +72,7 @@ public class KthLargestElement {
 		int k = 3;
 		int l1= findKthLargestElement(arr , k);
 		int l2 = kthLargest2(arr , 0 , arr.length-1 , k-1);
-		System.out.println("kth Largest Element Using MinHeap     : " + l1);
+		System.out.println("kth Largest Element Using Heap     : " + l1);
 		System.out.println("kth Largest Element Using QuickSelect : " + l2);
 	}
 }
