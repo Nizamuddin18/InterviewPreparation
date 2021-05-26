@@ -24,9 +24,10 @@ public class DuplicateBrackets {
 	}
 
 	public static void main(String[] args) {
-		String str = "((a + b) + (c + d))";
+		String str = "((a+b) + ((c-d)))";
+		System.out.println("Input  : " + str);
 		boolean ret_val = isDuplicate(str);
-		System.out.println(ret_val);
+		System.out.println("Output : " + ret_val);
 
 	}
 

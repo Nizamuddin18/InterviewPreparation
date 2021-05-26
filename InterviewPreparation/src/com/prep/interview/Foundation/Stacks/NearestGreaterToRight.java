@@ -11,7 +11,7 @@ public class NearestGreaterToRight {
 	private static int[] getNearestToRight(int arr[]){
 		int res[] = new int[arr.length];
 		Stack<Integer> st = new Stack<>();
-		for(int i = arr.length-1 ; i >=0 ; i--){
+		for(int i = arr.length-1 ; i >= 0 ; i--){
 			if(st.isEmpty()){
 				res[i] = -1;
 			}else if(!st.isEmpty() && st.peek() > arr[i]){
@@ -31,11 +31,34 @@ public class NearestGreaterToRight {
 		return res;
 	}
 	
+	private static int[] getNearestToRight2(int nums[]) {
+		int n = nums.length;
+        int[] ans = new int[n];
+        Stack<Integer> stack = new Stack<>();
+        for(int i=n-1;i>=0;i--){
+            while(!stack.isEmpty() && nums[stack.peek()] <= nums[i]){
+                stack.pop();
+            }
+            ans[i] = stack.isEmpty() ? -1 : nums[stack.peek()];
+            stack.push(i);
+        }
+        for(int i=n-1;i>=0;i--){
+            if(ans[i] == -1){
+                while(!stack.isEmpty() && nums[stack.peek()] <=nums[i]){
+                    stack.pop();
+                }
+                ans[i] = stack.isEmpty() ? -1 : nums[stack.peek()];
+            }
+            stack.push(i);
+        }
+        return ans;
+	}
+	
 	public static void main(String[] args) {
-		int arr[] = {1,3,0,0,1,2,4};
+		int arr[] = {1,2,1};
 		System.out.println("Input Array : ");
 		display(arr);
-		int res[] = getNearestToRight(arr);
+		int res[] = getNearestToRight2(arr);
 		System.out.println("Nearest Greater Element To Right : ");
 		display(res);
 	}

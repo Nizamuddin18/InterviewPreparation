@@ -1,5 +1,7 @@
 package com.prep.interview.LinkedList;
 
+import java.util.Stack;
+
 class Node{
 	int data;
 	Node next;
@@ -281,6 +283,26 @@ public class LinkedListCustom{
 		return slow;
 	}
 	
+	public Node getMidNode1(){
+		Node fast = head;
+		Node slow = head;
+		while(fast!=null && fast.next!=null){
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		return slow;
+	}
+	
+	public Node getMidNode2(){
+		Node fast = head.next;
+		Node slow = head;
+		while(fast!=null && fast.next!=null){
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		return slow;
+	}
+	
 	public Node getMiddleNode(Node start , Node end){
 		Node fast = head;
 		Node slow = head;
@@ -490,6 +512,59 @@ public class LinkedListCustom{
 		mid.next = head2;
 		return flag;
 	}
-	
+
+	public  int getSize(Node node) {
+		int size = 0;
+		Node temp = node;
+		while (temp != null) {
+			temp = temp.next;
+			size++;
+		}
+		return size;
+	}
+
+	public  void fillArray(int[] arr, Node node, int size) {
+		Node temp = node;
+		int i = 0;
+		while (temp != null && i < size) {
+			arr[i] = temp.data;
+			temp = temp.next;
+			i++;
+		}
+	}
+
+	public  int[] nextGreaterNode(Node head) {
+		int size = getSize(head);
+		int arr[] = new int[size];
+		fillArray(arr, head, size);
+		int res[] = new int[size];
+		Stack<Integer> st = new Stack<>();
+		for(int i = arr.length-1 ; i >=0 ; i--){
+			if(st.isEmpty()){
+				res[i] = 0;
+			}else if(!st.isEmpty() && st.peek() > arr[i]){
+				res[i] = st.peek();
+			}else if(!st.isEmpty() && st.peek() <= arr[i]){
+				while(!st.isEmpty() && st.peek() <= arr[i]){
+					st.pop();
+				}
+				if(st.isEmpty()){
+					res[i] = 0;
+				}else{
+					res[i] = st.peek();
+				}
+			}
+			st.push(arr[i]);
+		}
+		for(int i = 0 ; i < arr.length ; i++)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+		
+		for(int i = 0 ; i < res.length ; i++)
+			System.out.print(res[i] + " ");
+		System.out.println();
+		
+		return res;
+	}
 	
 }

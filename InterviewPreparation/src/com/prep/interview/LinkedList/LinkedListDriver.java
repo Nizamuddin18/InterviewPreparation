@@ -28,6 +28,8 @@ public class LinkedListDriver {
 		System.out.println("19.Merge Two Sorted LinkedList");
 		System.out.println("20.K Reverse LinkedList");
 		System.out.println("21.Is Plaindrome ? ");
+		System.out.println("22.Mid Node1 and Mid Node 2 :  ");
+		System.out.println("23.Next Greater Node :  ");
 		while(true){
 			System.out.println("Enter Choice (Press -1 to exit) : ");
 			int choice = sc.nextInt();
@@ -185,6 +187,19 @@ public class LinkedListDriver {
 				l.printList();
 				boolean ret_flag = l.IsPlaindrome(l.head);
 				System.out.println("Is Plaindrome ? " + ret_flag);
+				break;
+			case 22 :
+				l.printList();
+				Node mid1 = l.getMidNode1();
+				Node mid2 = l.getMidNode2();
+				System.out.println("Mid Node1 : " + mid1.data);
+				System.out.println("Mid Node2 : " + mid2.data);
+				break;
+			case 23 : 
+				l.printList();
+				int arr[] = l.nextGreaterNode(l.head);
+				for(int i = 0 ; i < arr.length ; i++)
+					System.out.print(arr[i] + " ");
 				break;
 			default :
 				System.out.println("...Quit...");

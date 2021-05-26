@@ -11,7 +11,7 @@ public class LogarithmicPower {
 	}
 	public static void main(String[] args) {
 		int n = 2;
-		int i = 4;
+		int i = 5;
 		int power = getLogarithmicPower(n , i);
 		System.out.println(n + "^" + i +" = " + power);
 	}
