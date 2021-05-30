@@ -7,8 +7,7 @@ public class LevelOrderTraversal {
 
 	public static void main(String[] args) {
 		ConstructBinaryTree tree = new ConstructBinaryTree();
-		Integer arr[] = {1,2,4,null,null,5,null,null,3,null,6,null,null};
-		Node root = tree.constructBinaryTree(arr);
+		Node root = tree.constructBinaryTree();
 		System.out.println(" ::::: Level Order Traversal of Tree ::::: " );
 		levelOrder(root);
 		
@@ -17,11 +16,9 @@ public class LevelOrderTraversal {
 	public static void levelOrder(Node node){
 		Queue<Node> q = new ArrayDeque<Node>();
 		q.add(node);
-		int level = 1;
 		while(!q.isEmpty()){
-			System.out.print("L" + level  + " : ");
-			int count = q.size();
-			for(int i = 0 ; i < count ; i++){
+			int size = q.size();
+			for(int i = 0 ; i < size ; i++){
 				Node rem = q.remove();	
 				System.out.print(rem.val + " ");
 				if(rem.left!=null){
@@ -31,7 +28,6 @@ public class LevelOrderTraversal {
 					q.add(rem.right);
 				}
 			}
-			level++;
 			System.out.println();
 		}
 	}

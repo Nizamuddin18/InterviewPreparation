@@ -8,8 +8,7 @@ public class PrintLeftView {
 
 	public static void main(String[] args) {
 		ConstructBinaryTree tree = new ConstructBinaryTree();
-		Integer arr[] = {1,2,4,null,null,5,null,null,3,null,6,null,null};
-		Node root = tree.constructBinaryTree(arr);
+		Node root = tree.constructBinaryTree();
 		//tree.display(root);
 		printleftView(root);
 	}

@@ -4,9 +4,8 @@ public class TraversalRecursive {
 
 	public static void main(String[] args) {
 		ConstructBinaryTree tree = new ConstructBinaryTree();
-		Integer arr[] = {50 ,25 ,12 ,null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null};
-		Node root = tree.constructBinaryTree(arr);
-		System.out.println("Recursive Traversal : ");
+		Node root = tree.constructBinaryTree();
+		System.out.println("Binary Tree Traversal(Recursive) : ");
 		System.out.print("Inorder :  ");
 		inOrderTraversal(root);
 		System.out.println();

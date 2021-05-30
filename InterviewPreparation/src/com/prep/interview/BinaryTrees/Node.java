@@ -28,7 +28,12 @@ public class Node {
 		this.left = left;
 		this.right = right;
 	}
-
+	public Node(int data){
+		this.val = data;
+		this.left = null;
+		this.right = null;
+	}
+	
 	@Override
 	public String toString() {
 		return "" + val;

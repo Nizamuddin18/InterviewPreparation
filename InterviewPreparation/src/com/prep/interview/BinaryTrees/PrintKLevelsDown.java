@@ -4,8 +4,7 @@ public class PrintKLevelsDown {
 
 	public static void main(String[] args) {
 		ConstructBinaryTree tree = new ConstructBinaryTree();
-		Integer arr[] = {50 ,25 ,12 ,null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null};
-		Node root = tree.constructBinaryTree(arr);
+		Node root = tree.constructBinaryTree();
 		int k = 2;
 		System.out.print("Print " + k + " levels down from Root("+root.val+") : ");
 		printKLevelsDown(root , k);

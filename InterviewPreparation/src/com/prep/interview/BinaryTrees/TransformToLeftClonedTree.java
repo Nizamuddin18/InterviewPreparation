@@ -1,11 +1,10 @@
 package com.prep.interview.BinaryTrees;
 
-public class TransaformToLeftClonedTree {
+public class TransformToLeftClonedTree {
 
 	public static void main(String[] args) {
 		ConstructBinaryTree tree = new ConstructBinaryTree();
-		Integer[] arr = {1,2,4,null,null,5,null,null,3,6,null,null,7,null,null};
-		Node root = tree.constructBinaryTree(arr);
+		Node root = tree.constructBinaryTree();
 		System.out.println("INITIAL TREE : ");
 		System.out.println();
 		tree.display(root);

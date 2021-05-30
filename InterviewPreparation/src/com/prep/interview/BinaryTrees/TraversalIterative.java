@@ -4,9 +4,8 @@ public class TraversalIterative {
 
 	public static void main(String[] args) {
 		ConstructBinaryTree tree = new ConstructBinaryTree();
-		Integer arr[] = {50 ,25 ,12 ,null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null};
-		Node root = tree.constructBinaryTree(arr);
-		System.out.println("Iterative Traversal : ");
+		Node root = tree.constructBinaryTree();
+		System.out.println("Binary Tree Traversal(Iterative) : ");
 		inPrePostOrderTraversalIterative(root);
 	}
 	
@@ -17,23 +16,23 @@ public class TraversalIterative {
 		String inorder = "";
 		String preorder = "";
 		String postorder = "";
-		Pair root_pair = new Pair(node , 1);
+		Pair root_pair = new Pair(node , 0);
 		Stack<Pair> stack = new Stack<>();
 		stack.push(root_pair);
 		while(!stack.isEmpty()){
 			Pair top = stack.peek();
-			if(top.state == 1){
+			if(top.state == 0){
 				preorder = preorder + top.node.val + " ";
 				top.state++;
 				if(top.node.left != null){
-					Pair left = new Pair(top.node.left , 1);
+					Pair left = new Pair(top.node.left , 0);
 					stack.push(left);
 				}
-			}else if(top.state == 2){
+			}else if(top.state == 1){
 				inorder = inorder + top.node.val + " ";
 				top.state++;
 				if(top.node.right!=null){
-					Pair right = new Pair(top.node.right , 1);
+					Pair right = new Pair(top.node.right , 0);
 					stack.push(right);
 				}
 			}else{
