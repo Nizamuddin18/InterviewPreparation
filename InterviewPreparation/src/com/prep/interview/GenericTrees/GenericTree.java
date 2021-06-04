@@ -2,6 +2,7 @@ package com.prep.interview.GenericTrees;
 import java.util.Scanner;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -249,6 +250,150 @@ public class GenericTree {
 		return i + j;
 	}
 	
+	public static void removeLeaves(Node node){
+		for(int i = node.children.size() - 1 ; i >= 0 ; i--){
+			Node child = node.children.get(i);
+			if(child.children.size() == 0)
+				node.children.remove(child);
+		}
+		for(Node child : node.children)
+			removeLeaves(child);
+	}
+	
+	public static void mirror(Node node){
+		for(Node child : node.children)
+			mirror(child);
+		Collections.reverse(node.children);
+	}
+	
+	public static boolean areSimilar(Node node1, Node node2) {
+		if (node1.children.size() != node2.children.size())
+			return false;
+		boolean res = true;
+		int size = node1.children.size();
+		for (int i = 0; i < size; i++) {
+			Node child1 = node1.children.get(i);
+			Node child2 = node2.children.get(i);
+			res = areSimilar(child1, child2);
+			if (res == false)
+				return false;
+		}
+		
+		return res;
+	}
+
+	public static boolean areMirror(Node node1, Node node2) {
+		if (node1.children.size() != node2.children.size())
+			return false;
+
+		int size = node1.children.size();
+		boolean res = true;
+		for (int i = 0; i < size; i++) {
+			Node child1 = node1.children.get(i);
+			Node child2 = node2.children.get(size - i - 1);
+			res = areMirror(child1, child2);
+			if (res == false)
+				return false;
+		}
+		
+		return res;
+	}
+	
+	static Node predecessor;
+	static Node successor;
+	static int state;
+	public static void predecessorAndSuccessor(Node node , int target){
+		if(state == 0){
+			if(node.data == target){
+				state = 1;
+			}else{
+				predecessor = node;
+			}
+		}else if(state == 1){
+			successor = node;
+			state++;
+		}
+		
+		for(Node child : node.children)
+			predecessorAndSuccessor(child , target);
+
+	}
+	
+	static int ceil; // smallest among larger values
+	static int floor; //largest among smaller values
+	public static void ceilAndFloor(Node node , int target){
+		if(node.data > target){
+			if(node.data < ceil)
+				ceil = node.data;
+		}
+		
+		if(node.data < target){
+			if(node.data > floor){
+				floor = node.data;
+			}
+		}
+		
+		for(Node child : node.children)
+			ceilAndFloor(child , target);
+	}
+	
+	public static int kthLargest(Node node , int k){
+		floor = Integer.MIN_VALUE;
+		int factor = Integer.MAX_VALUE;
+		for(int i = 0 ; i < k ; i++){
+			ceilAndFloor(node , factor);
+			factor = floor;
+			floor = Integer.MIN_VALUE;
+		}
+		return factor;
+	}
+	
+	static int maxSum = Integer.MIN_VALUE;
+	static int maxSumNode = 0;
+	public static int maxSubtreeSum(Node node){
+		int sum = 0;
+		for(Node child : node.children){
+			int csum = maxSubtreeSum(child);
+			sum += csum;
+		}
+		sum += node.data;
+		if(sum > maxSum){
+			maxSum = sum;
+			maxSumNode = node.data;
+		}
+		return sum;
+	}
+	
+	static int diameter = 0;
+	public static int diameter(Node node){
+		int deepestHeight = -1;
+		int secondDeepestHeight = -1;
+		for(Node child : node.children){
+			int height = diameter(child);
+			if(height > deepestHeight){
+				secondDeepestHeight = deepestHeight;
+				deepestHeight = height;	
+			}else if(height > secondDeepestHeight){
+				secondDeepestHeight = height;
+			}
+		}
+		int potentialDiameter = deepestHeight + secondDeepestHeight + 2;
+		diameter = Math.max(diameter, potentialDiameter);		
+		deepestHeight += 1;
+		return deepestHeight;
+	}
+	
+	public static boolean find(Node node, int data) {
+	    if(node.data == data) return true;
+	    boolean flag = false;
+	    
+	    for(Node child : node.children){
+	    	flag = find(child , data);
+	    	if(flag)
+	    		return true;
+	    }
+	    return flag;
+	  }
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -257,8 +402,8 @@ public class GenericTree {
 		Node root = constructTree(arr);
 		System.out.println("1.Display Generic Tree : ");
 		System.out.println("2.Size of Generic Tree : ");
-		System.out.println("3.Max Node");
-		System.out.println("4.Min Node");
+		System.out.println("3.Max in Generic Tree : ");
+		System.out.println("4.Min in Generic Tree : ");
 		System.out.println("5.Height of Generic Tree : ");
 		System.out.println("6.Level Order Traversal : ");
 		System.out.println("7.Level Order LineWise1 : ");
@@ -268,6 +413,16 @@ public class GenericTree {
 		System.out.println("11.Node to Root Path : ");
 		System.out.println("12.Lowest Common Ancestor : ");
 		System.out.println("13.Distance Between Two Nodes : ");
+		System.out.println("14.Remove Leaves : ");
+		System.out.println("15.Mirror of Generic Tree : ");
+		System.out.println("16.Predecessor and Successor : ");
+		System.out.println("17.Ceil and Floor : ");
+		System.out.println("18.Kth Largest Element : ");
+		System.out.println("19.Maximum Subtree Sum : ");
+		System.out.println("20.Diameter of Generic Tree : ");
+		System.out.println("21.Find in Generic Tree : ");
+		System.out.println("22.Are Generic Tree Similar : ");
+		System.out.println("23.Are Generic Tree Mirror : ");
 		while(true){
 			System.out.println("Enter Choice(Press -1 to exit) : ");
 			int choice = sc.nextInt();
@@ -323,11 +478,71 @@ public class GenericTree {
 				int distance = distance(root ,d1 ,d2);
 				System.out.println("Distance between " + d1 + " and " + d2 + " : " + distance);
 				break;
+			case 14 : 
+				System.out.println("Before Removal : ");
+				display(root);
+				removeLeaves(root);
+				System.out.println("After Removal  : ");
+				display(root);
+				break;
+			case 15 : 
+				System.out.println("Original Tree : ");
+				display(root);
+				mirror(root);
+				System.out.println("Mirror Tree : ");
+				display(root);
+				break;
+			case 16 : 
+				predecessorAndSuccessor(root , 120);
+				System.out.println("Predecessor : " + predecessor.data);
+				System.out.println("Successor : " + successor.data);
+				break;
+			case 17 : 
+				int no = 90;
+				ceil = Integer.MAX_VALUE;
+				floor = Integer.MIN_VALUE;
+				ceilAndFloor(root , no);
+				if(ceil == Integer.MAX_VALUE)
+					System.out.println("No Ceil exist");
+				else
+					System.out.println("Ceil of " + no  + " is : " + ceil);
+				
+				if(floor == Integer.MIN_VALUE)
+					System.out.println("No Floor exist");
+				else
+					System.out.println("Floor of " + no  + " is : " + floor);		
+				break;
+			case 18 : 
+				int kthlargest = kthLargest(root , 3);
+				System.out.println("Kth Largest Element : " + kthlargest);
+				break;
+			case 19 : 
+				maxSubtreeSum(root);
+				System.out.println("Maximum Subtree Sum : " + maxSum + " @ Node : " + maxSumNode);
+				break;
+			case 20 : 
+				diameter(root);
+				System.out.println("Diameter of Generic Tree : " + diameter);
+				break;
+			case 21 : 
+				boolean flag = find(root , 130);
+				System.out.println("Node was found : " + flag);
+				break;
+			case 22 : 
+				Node root1 = constructTree(arr);
+				boolean areSame = areSimilar(root , root1);
+				System.out.println("Are Generic Trees Similar : " + areSame);
+				break;
+			case 23 : 
+				Node root2 = constructTree(arr);
+				mirror(root2);
+				boolean areMirror = areMirror(root , root2);
+				System.out.println("Are Generic Trees Mirror : " + areMirror);
+				break;
 			default : 
-				System.out.println("Quit...");
+				System.out.println("...Quit...");
 				System.exit(0);
-			}
-			
+			}		
 		}
 	}
 }

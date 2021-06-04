@@ -11,7 +11,7 @@ public class PrintKDistanceFar {
 		int k = 3;
 		int inputElement = 75;
 		System.out.println("::::: K Distance Far :::::");
-		System.out.println("Input => k : " + k  + " and " + " Input Number : " + inputElement);
+		System.out.println("Input  k : " + k  + " and " + " Input Node : " + inputElement);
 		System.out.println("Does Node To Root Path exist ? " + ntrp.findNodeToRootPath(root, inputElement, path));
 		System.out.print("Nodes that are " + k + " levels far from " + inputElement + " are : ");
 		p.printklevelsFar(root, path, k);

@@ -4,16 +4,15 @@ public class PathToLeavesFRomRoot {
 
 	public static void main(String[] args) {
 		ConstructBinaryTree tree = new ConstructBinaryTree();
-		//Integer[] arr = {50,25,12,null,null,37,30,null,null,40,null,null,75,62,60,null,null,70,null,null,87,null,null};
+		
 		Node root = new Node(10,null,null);
 		root.left = new Node(5,null,null);
 		root.left.left = new Node(1,null,null);
 		root.left.right = new Node(7,null,null);
-		
 		root.right = new Node(15,null,null);
 		root.right.left = new Node(12,null,null);
 		root.right.right = new Node(17,null,null);
-		//tree.display(root);
+		
 		int low = 22,high = 37;
 		System.out.println("Path to Leaf from Root where sum lies in the range of " + low + " to " + high);
 		pathToLeaves(root , "" , 0, low, high);
