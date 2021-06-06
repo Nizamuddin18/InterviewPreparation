@@ -8,14 +8,15 @@ public class TransformToLeftClonedTree {
 		System.out.println("INITIAL TREE : ");
 		System.out.println();
 		tree.display(root);
-		Node newRoot = transformToLeftCloned(root);
+		TransformToLeftClonedTree leftClone = new TransformToLeftClonedTree();
+		Node newRoot = leftClone.transformToLeftCloned(root);
 		System.out.println("=============================");
 		System.out.println("LEFT CLONED TREE : ");
 		System.out.println();
 		tree.display(newRoot);
 	}
 	
-	private static Node transformToLeftCloned(Node node){
+	public Node transformToLeftCloned(Node node){
 		if(node == null){
 			return null;
 		}
