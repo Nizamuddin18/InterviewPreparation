@@ -119,7 +119,7 @@ This is a complete Educational Project.Any suggestions are welcome
 * [Recursion](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Foundation/Recursion)
 * [Backtracking](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/BackTracking)
 * [Binary Trees](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/BinaryTrees)
-* [Binary Search Trees]
+* [Binary Search Trees](https://github.com/Nizamuddin18/InterviewPreparation/tree/master/InterviewPreparation/src/com/prep/interview/BinarySearchTree)
 * [Heaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/HashMapFoundation)
 * [HashMaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/HashmapHeaps)
 * [Stacks & Queues](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Stacks)
