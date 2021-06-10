@@ -1,4 +1,4 @@
-package com.prep.interview.HashMapFoundation;
+package com.prep.interview.HashmapHeaps;
 import java.util.*;
 import java.util.PriorityQueue;
 class NonRepeatingPair implements Comparable<NonRepeatingPair>{

@@ -1,6 +1,7 @@
 package com.prep.interview.Foundation.Recursion;
 import java.util.*;
 public class GetStairsPath {
+	
 	private static ArrayList<String> getStairsPath(int n){
 		//Base case
 		if(n == 0){

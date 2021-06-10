@@ -3,7 +3,7 @@ package com.prep.interview.Foundation.Recursion;
 import java.util.Scanner;
 
 public class PrintStairsPath {
-	// Optimized
+		// Optimized
 		public static void printStairPathsOptimized(int n, String path) {
 			if (n == 0) {
 				System.out.println(path);
@@ -29,6 +29,7 @@ public class PrintStairsPath {
 
 		public static void main(String[] args) throws Exception {
 			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter Stairs length : ");
 			int n = sc.nextInt();
 			printStairPathsOptimized(n, "");
 		}

@@ -1,4 +1,4 @@
-package com.prep.interview.HashMapFoundation;
+package com.prep.interview.HashmapHeaps;
 
 public class KthLargest2 {
 	private static int kthLargestElement(int[] arr, int li, int ri, int k) {

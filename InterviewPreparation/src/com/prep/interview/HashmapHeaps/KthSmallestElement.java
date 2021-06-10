@@ -1,4 +1,4 @@
-package com.prep.interview.HashMapFoundation;
+package com.prep.interview.HashmapHeaps;
 import java.util.Collections;
 import java.util.PriorityQueue;
 public class KthSmallestElement {
@@ -13,16 +13,21 @@ public class KthSmallestElement {
 		for(Integer i : arr)
 			System.out.print(i + " ");
 		System.out.println();
-		System.out.println("Output :" + kthSmallestElement);
+		System.out.println("Output : " + kthSmallestElement);
 
 	}
 
 	private static int findKthSamllestElement(int[] arr, int size, int k) {
-		PriorityQueue<Integer> pq = new PriorityQueue<>(k+1,Collections.reverseOrder());
+		PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 		for(int i = 0 ; i < arr.length ; i++){
-			pq.add(arr[i]);
-			if(pq.size() > k)
-				pq.remove();
+			if(i < k)
+				pq.add(arr[i]);
+			else{
+				if(arr[i] <= pq.peek()){
+					pq.remove(); // remove from Priority Queue
+					pq.add(arr[i]); // add
+				}
+			}	
 		}
 		return pq.peek();
 	}

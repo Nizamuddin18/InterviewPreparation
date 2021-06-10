@@ -1,4 +1,4 @@
-package com.prep.interview.HashMapFoundation;
+package com.prep.interview.HashmapHeaps;
 
 import java.util.HashMap;
 import java.util.PriorityQueue;

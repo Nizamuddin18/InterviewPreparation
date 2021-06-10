@@ -1,10 +1,12 @@
 package com.prep.interview.leetcode;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /*=============================================================================================================================
-Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Given an array of integers, 1 <= a[i] <= n (n = size of array), some elements appear twice and others appear once.
 
 Find all the elements that appear twice in this array.
 
@@ -27,16 +29,15 @@ public class DuplicatesInArray {
 	}
 
 	private static List<Integer> finDuplicates(int[] arr) {
-		List<Integer> output = new ArrayList<Integer>();	
-		int index;
-		
-		for(int i=0;i<arr.length;i++){
-			 index = Math.abs(arr[i]) -1;
-			 if(arr[index] < 0)	
-				 output.add(Math.abs(arr[index]));
-			 arr[index] = -arr[index];
+		List<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < arr.length; i++) {
+			int index = Math.abs(arr[i]) - 1;
+			if (arr[index] < 0)
+				list.add(Math.abs(arr[index]));
+			arr[index] = -arr[index];
 		}
-		return output;
+		Collections.reverse(list);
+		return list;
 	}
 
 }
