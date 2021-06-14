@@ -27,7 +27,6 @@ class Node {
 }
 public class GenericTree {
 	
-	
 	public static void display(Node node){
 		String str = "[" + node.data + "] -> ";
 		for(Node child : node.children){
@@ -90,9 +89,9 @@ public class GenericTree {
 		min = Math.min(min, node.data);
 		return min;
 	}
-	
-	//Height - > Edge wise i,e from Root to Depth of tree get Maximum edged Height
+
 	public static int height(Node node){
+		//Height - > Edge wise i,e from Root to Depth of tree get Maximum edged Height
 		int height = -1;
 		for(Node child : node.children){
 			height = Math.max(height, height(child));
@@ -369,16 +368,19 @@ public class GenericTree {
 		int deepestHeight = -1;
 		int secondDeepestHeight = -1;
 		for(Node child : node.children){
-			int height = diameter(child);
-			if(height > deepestHeight){
+			int childheight = diameter(child);
+			if(childheight > deepestHeight){
 				secondDeepestHeight = deepestHeight;
-				deepestHeight = height;	
-			}else if(height > secondDeepestHeight){
-				secondDeepestHeight = height;
+				deepestHeight = childheight;	
+			}else if(childheight > secondDeepestHeight){
+				secondDeepestHeight = childheight;
 			}
 		}
+		
 		int potentialDiameter = deepestHeight + secondDeepestHeight + 2;
-		diameter = Math.max(diameter, potentialDiameter);		
+		if(diameter < potentialDiameter)
+			diameter = potentialDiameter;
+		
 		deepestHeight += 1;
 		return deepestHeight;
 	}
@@ -394,6 +396,45 @@ public class GenericTree {
 	    }
 	    return flag;
 	  }
+	
+	static class Pair {
+		Node node;
+		int state;
+
+		Pair(Node node, int state) {
+			this.node = node;
+			this.state = state;
+		}
+	}
+
+	public static void IterativePreandPostOrder(Node node) {
+		Stack<Pair> st = new Stack<>();
+		String pre = "";
+		String post = "";
+		Pair rootpair = new Pair(node, -1);
+		st.push(rootpair);
+
+		while (!st.isEmpty()) {
+			Pair top = st.peek();
+			if (top.state == -1) {
+				pre += top.node.data + " ";
+				top.state++;
+			} else if (top.state == top.node.children.size()) {
+				post += top.node.data + " ";
+				st.pop();
+			} else {
+				Pair childpair = new Pair(top.node.children.get(top.state), -1);
+				st.push(childpair);
+				top.state++;
+			}
+		}
+		System.out.println(pre);
+		System.out.println(post);
+	}
+	
+	public static boolean isSymmetry(Node node1 , Node node2){
+		return areMirror(node1 , node2);
+	}
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -423,6 +464,7 @@ public class GenericTree {
 		System.out.println("21.Find in Generic Tree : ");
 		System.out.println("22.Are Generic Tree Similar : ");
 		System.out.println("23.Are Generic Tree Mirror : ");
+		System.out.println("24.Iterative Traversal : ");
 		while(true){
 			System.out.println("Enter Choice(Press -1 to exit) : ");
 			int choice = sc.nextInt();
@@ -538,6 +580,9 @@ public class GenericTree {
 				mirror(root2);
 				boolean areMirror = areMirror(root , root2);
 				System.out.println("Are Generic Trees Mirror : " + areMirror);
+				break;
+			case 24 : 
+				IterativePreandPostOrder(root);
 				break;
 			default : 
 				System.out.println("...Quit...");
