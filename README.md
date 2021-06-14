@@ -118,16 +118,17 @@ This is a complete Educational Project.Any suggestions are welcome
 * [Linked List](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/LinkedList)
 * [Recursion](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Foundation/Recursion)
 * [Backtracking](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/BackTracking)
+* [Generic Tree](https://github.com/Nizamuddin18/InterviewPreparation/tree/master/InterviewPreparation/src/com/prep/interview/GenericTrees)
 * [Binary Trees](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/BinaryTrees)
 * [Binary Search Trees](https://github.com/Nizamuddin18/InterviewPreparation/tree/master/InterviewPreparation/src/com/prep/interview/BinarySearchTree)
-* [Heaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/HashMapFoundation)
-* [HashMaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/HashmapHeaps)
+* [Heaps & HashMaps](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/HashmapHeaps)
 * [Stacks & Queues](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Stacks)
 * [Dynamic Programming](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/DynamicProgramming)
 * [Graphs](https://github.com/Nizamuddin18/InterviewPreparation/tree/main/InterviewPreparation/src/com/prep/interview/Graph)
 * [Greedy]
 * [Bit Manipulation]
 * [Trie]
+* [LeetCode Solutions](https://github.com/Nizamuddin18/InterviewPreparation/tree/master/InterviewPreparation/src/com/prep/interview/leetcode)
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -153,10 +154,9 @@ Any contributions you make are **greatly appreciated**.
 ## Acknowledgements
 
 * [GeeksForGeeks](https://www.geeksforgeeks.org/)
-* [LeetCode](https://leetcode.com/)
-* [PepCoding](https://www.pepcoding.com/)
+* [LeetCode](https://leetcode.com/problemset/all/)
+* [PepCoding](https://www.pepcoding.com/resources/)
 * [InterviewBit](https://www.interviewbit.com/)
-* [CodingBlocks](https://codingblocks.com/)
 * [Educative.io](https://www.educative.io/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
