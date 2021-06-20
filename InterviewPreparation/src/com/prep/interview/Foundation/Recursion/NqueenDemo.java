@@ -20,6 +20,7 @@ public class NqueenDemo {
 	 * in same Row
 	 *
 	 * */
+	
 	private static void print2dWays(int n , int m , int r , int c , int bsf , String asf){
 		if(n == r){
 			if(bsf == 2)
@@ -58,6 +59,7 @@ public class NqueenDemo {
 		else
 			print2DWays1(n , m , r+1 , 0 , bsf , asf);
 	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = 2;//sc.nextInt();

@@ -229,7 +229,7 @@ public class LinkedListCustom{
 	public Node reverseByNode(Node node){
 		Node cur = node;
 		Node prev = null;
-		Node nextNode = node;
+		Node nextNode = cur;
 		while(cur!=null){
 			nextNode = nextNode.next;//backup
 			cur.next = prev; //creates Links
@@ -567,4 +567,29 @@ public class LinkedListCustom{
 		return res;
 	}
 	
+	public void addTwoNumbers(Node head1 , Node head2){
+		Node rhead1 = reverseByNode(head1);
+		Node rhead2 = reverseByNode(head2);
+		Node temp1 = rhead1;
+        Node temp2 = rhead2;
+        int carry = 0;
+        Node dummy = new Node();
+        Node prev = dummy;
+        while(temp1!=null || temp2!=null ||
+             carry > 0){
+            int ival = temp1!=null ? temp1.data : 0;
+            int jval = temp2!=null ? temp2.data : 0;
+            int sum = carry + ival + jval;
+            int rem = sum % 10;
+            carry = sum/10;
+            Node node = new Node(rem);
+            prev.next = node;
+            prev = prev.next;
+            
+            temp1 = temp1!=null ? temp1.next : null;
+            temp2 = temp2!=null ? temp2.next : null;
+        }
+        rhead2 = reverseByNode(dummy.next);
+        printListCustom(rhead2);
+	}
 }

@@ -30,6 +30,7 @@ public class LinkedListDriver {
 		System.out.println("21.Is Plaindrome ? ");
 		System.out.println("22.Mid Node1 and Mid Node 2 :  ");
 		System.out.println("23.Next Greater Node :  ");
+		System.out.println("24.Add 2 numbers LinkedList : ");
 		while(true){
 			System.out.println("Enter Choice (Press -1 to exit) : ");
 			int choice = sc.nextInt();
@@ -200,6 +201,19 @@ public class LinkedListDriver {
 				int arr[] = l.nextGreaterNode(l.head);
 				for(int i = 0 ; i < arr.length ; i++)
 					System.out.print(arr[i] + " ");
+				break;
+			case 24 : 
+				LinkedListCustom ll1 = new LinkedListCustom();
+				LinkedListCustom ll2 = new LinkedListCustom();
+				ll1.addLast(7);
+				ll1.addLast(2);
+				ll1.addLast(4);
+				ll1.addLast(3);
+				
+				ll2.addLast(5);
+				ll2.addLast(6);
+				ll2.addLast(4);
+				l.addTwoNumbers(ll1.head, ll2.head);
 				break;
 			default :
 				System.out.println("...Quit...");

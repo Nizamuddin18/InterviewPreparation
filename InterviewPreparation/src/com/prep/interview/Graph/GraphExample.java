@@ -19,44 +19,56 @@ public class GraphExample {
 		System.out.println("7.Hamiltonian Path/Cycle");
 		System.out.println("8.Dijkstra's");
 		System.out.println("9.Prims");
-		System.out.println("10.Is Cyclic");
-
-		System.out.println("Enter Your Choice");
-		int choice = sc.nextInt();
-		switch(choice){
-		case 1 :
-			bfs(g , vertices);
-			break;
-		case 2 : 
-			dfs(g , vertices);
-			break;
-		case 3 : 
-			hasPathCheck(g , vertices);
-			break;
-		case 4 : 
-			printAllPathCheck(g , vertices);
-			break;
-		case 5 :
-			getConnectedComponents(g , vertices);
-			break;
-		case 6 : 
-			isGraphConnected(g , vertices);
-			break;
-		case 7 : 
-			hamiltonian(g , vertices);
-			break;
-		case 8 :
-			dijkstra(g , vertices);
-			break;
-		case 9 : 
-			prim(g , vertices);
-			break;
-		case 10 :
-			cycle(g , vertices);
-			break;
+		System.out.println("10.Is Graph Cyclic");
+		System.out.println("11.No of Islands : ");
+		System.out.println("12.Spread Of Infections : ");
+		while(true){
+			System.out.println("Enter Your Choice(Press -1 to Exit) : ");
+			int choice = sc.nextInt();
+			switch(choice){
+			case 1 :
+				bfs(g , vertices);
+				break;
+			case 2 : 
+				dfs(g , vertices);
+				break;
+			case 3 : 
+				hasPathCheck(g , vertices);
+				break;
+			case 4 : 
+				printAllPathCheck(g , vertices);
+				break;
+			case 5 :
+				getConnectedComponents(g , vertices);
+				break;
+			case 6 : 
+				isGraphConnected(g , vertices);
+				break;
+			case 7 : 
+				hamiltonian(g , vertices);
+				break;
+			case 8 :
+				dijkstra(g , vertices);
+				break;
+			case 9 : 
+				prim(g , vertices);
+				break;
+			case 10 :
+				cycle(g , vertices);
+				break;
+			case 11 :			 
+				noofIslands(g);
+				break;
+			case 12 :
+				spreadOfInfections(g , vertices);
+				break;
+			default : 
+				System.exit(0);
+			}
 		}
+		
 	}
-	
+
 	private static void cycle(Graph g, int vertices){
 		g.addEdge(0, 1, 15);
 		g.addEdge(2, 3, 15);
@@ -88,6 +100,21 @@ public class GraphExample {
 		g.addEdge(5, 6, 3);
 		boolean visited[] = new boolean[vertices];
 		g.prims(0, -1, 0, visited);
+	}
+	
+	private static void spreadOfInfections(Graph g, int vertices){
+		g.addEdge(0, 1, 10);
+		g.addEdge(0, 3, 25);
+		g.addEdge(1, 2, 10);
+		g.addEdge(2, 3, 10);
+		g.addEdge(3, 4, 2);
+		g.addEdge(4, 5, 3);
+		g.addEdge(4, 6, 8);
+		g.addEdge(5, 6, 3);
+		int visited[] = new int[vertices];
+		int t = 3;
+		int count = g.spreadOfInfection(6, visited , t);
+		System.out.println("Total no of Vertices Infrected at time t = " + t + " : " + count);
 	}
 	
 	private static void dijkstra(Graph g , int vertices){
@@ -134,8 +161,9 @@ public class GraphExample {
 		g.addEdge(2, 5, 10);
 		g.addEdge(2, 6, 10);
 		boolean visited[] = new boolean[vertices];
+		System.out.println("DFS : ");
 		g.depthFirstSearch(0 , visited);
-		
+		System.out.println();
 	}
 	
 	
@@ -166,8 +194,9 @@ public class GraphExample {
 		g.addEdge(2, 5, 10);
 		g.addEdge(2, 6, 10);
 		boolean visited[] = new boolean[vertices];
+		System.out.println("BFS : ");
 		g.breadthFirstSearch(0, visited);
-		
+		System.out.println();
 	}
 
 	private static void isGraphConnected(Graph g, int vertices) {
@@ -237,9 +266,33 @@ public class GraphExample {
 		g.addEdge(5, 6, 12);
 		System.out.println(g);
 		boolean visited[] = new boolean[vertices];
-		boolean ret_val = g.hasPath(0, 6, visited);
-		System.out.println("Has Path : " + ret_val);
+		int src = 0;
+		int dest = 6;
+		boolean hasPath = g.hasPath(src, dest, visited);
+		System.out.println("Has Path between " + src + " and " + dest + " : "+ hasPath);
 	}
 
+	private static void noofIslands(Graph g) {
+		int arr[][] = {
+		{0,0,1,1,1,1,1,1},
+		{0,0,1,1,1,1,1,1},
+		{1,1,1,1,1,1,1,0},
+		{1,1,0,0,0,1,1,0},
+		{1,1,1,1,0,1,1,0},
+		{1,1,1,1,0,1,1,0},
+		{1,1,1,1,1,1,1,0},
+		{1,1,1,1,1,1,1,0}};
+
+		int count = 0;
+		for(int i = 0 ; i <arr.length ; i++){
+			for(int j = 0 ; j < arr[i].length ; j++){
+				if(arr[i][j] == 0){
+					count++;
+					g.gccForIslands(arr , i , j);
+				}
+			}
+		}
+		System.out.println(count);
+	}
 	
 }

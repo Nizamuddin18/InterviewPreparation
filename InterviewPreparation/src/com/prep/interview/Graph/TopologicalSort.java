@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 public class TopologicalSort {
-	class Edge{
+	static class Edge{
 		int v;
 		int wt;
 		public Edge(int v , int wt){
@@ -60,7 +60,7 @@ public class TopologicalSort {
 		graph.addEdge(0, 3, 15);
 		graph.addEdge(1, 2, 20);
 		graph.addEdge(2, 3, 10);
-		graph.addEdge(4, 3, 20);
+		//graph.addEdge(4, 3, 20);
 		graph.addEdge(4, 5, 10);
 		graph.addEdge(5, 6, 15);
 		graph.addEdge(4, 6, 10);

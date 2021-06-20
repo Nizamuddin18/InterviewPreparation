@@ -1,24 +1,63 @@
 package com.prep.interview.BinarySearchTree;
 
+import java.util.Stack;
+
 public class Construct {
 
 	public Node constructBST(){
-		int arr[] = {12,25,30,37,40,50,55,62,70,75,87};
-		int high = arr.length - 1;
-		int low = 0;
-		Node root = constructBST(arr,low,high);
+		int arr[] = {50 ,25 ,12 ,-1 ,-1 ,37, 30 , -1, -1, -1 , 75, 62, -1, 70, -1, -1, 87, -1, -1};
+		Node root = constructBST(arr);
 		return root;
 	}
+	
+	public static class Pair {
+	    Node node;
+	    int state;
 
-	private Node constructBST(int[] arr, int low , int high) {
-		if(low > high) return null;
-		
-		int mid = low + (high - low)/2;
-		int data = arr[mid];
-		Node leftChild = constructBST(arr , low , mid-1);
-		Node rightChild = constructBST(arr , mid+1 , high);
-		Node node = new Node(data , leftChild , rightChild);
-		return node;
+	    Pair(Node node, int state) {
+	      this.node = node;
+	      this.state = state;
+	    }
+	  }
+	
+	private Node constructBST(int[] arr) {
+		Node root = new Node(arr[0], null, null);
+	    Pair rtp = new Pair(root, 1);
+
+	    Stack<Pair> st = new Stack<>();
+	    st.push(rtp);
+
+	    int idx = 0;
+	    while (st.size() > 0) {
+	      Pair top = st.peek();
+	      if (top.state == 1) {
+	        idx++;
+	        if (arr[idx] != -1) {
+	          top.node.left = new Node(arr[idx], null, null);
+	          Pair lp = new Pair(top.node.left, 1);
+	          st.push(lp);
+	        } else {
+	          top.node.left = null;
+	        }
+
+	        top.state++;
+	      } else if (top.state == 2) {
+	        idx++;
+	        if (arr[idx] != -1) {
+	          top.node.right = new Node(arr[idx], null, null);
+	          Pair rp = new Pair(top.node.right, 1);
+	          st.push(rp);
+	        } else {
+	          top.node.right = null;
+	        }
+
+	        top.state++;
+	      } else {
+	        st.pop();
+	      }
+	    }
+
+	    return root;
 	}
 	
 	public void display(Node node) {
