@@ -82,7 +82,7 @@ public class LargestAreaHistogram {
 		return max;
 	}
 	public static void main(String[] args) {
-		int arr[] = { 6, 2, 5, 4, 5, 1, 6 };
+		int arr[] = { 2,4};
 		int histogram = getLargestAreaHist(arr);
 		System.out.println("Largest Area Histogram : " + histogram);
 	}

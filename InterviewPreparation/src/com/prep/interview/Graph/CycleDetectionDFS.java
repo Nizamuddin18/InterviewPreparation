@@ -33,8 +33,6 @@ public class CycleDetectionDFS {
 	
 	public void addEdge(int src , int dest , int wt){
 		graph[src].add(new Edge(dest,wt));
-		graph[dest].add(new Edge(src,wt));
-
 	}
 	
 	public void isCycle(int vertices){
@@ -50,8 +48,7 @@ public class CycleDetectionDFS {
 		visited[src] = true;
 		for(Edge edge : graph[src]){
 			if(visited[edge.nbr] == false){
-				boolean ret_cycle = isCycleHelper(edge.nbr , visited , src);
-				if(ret_cycle)
+				if(isCycleHelper(edge.nbr , visited , src))
 					return true;
 			}else if(edge.nbr!=parent){
 				return true;

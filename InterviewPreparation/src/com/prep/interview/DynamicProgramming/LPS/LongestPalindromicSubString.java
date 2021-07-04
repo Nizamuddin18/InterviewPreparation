@@ -4,11 +4,12 @@ public class LongestPalindromicSubString {
 
 	public static void main(String[] args) {
 		LongestPalindromicSubString lpss = new LongestPalindromicSubString();
-		String str = "frgekkegf";
+		String str = "abc";
 		int count = lpss.getPlaindromicSubsString(str);
 		System.out.println(count);
 
 	}
+	
 	public static String reverse(String str){
 		String ret = "";
 		for(int  i = 0; i < str.length() ; i++){
@@ -17,6 +18,7 @@ public class LongestPalindromicSubString {
 		}
 		return ret;
 	}
+	
 	public int getPlaindromicSubsString(String str1){
 		String str2 = reverse(str1);
 		int m = str1.length();
@@ -35,6 +37,7 @@ public class LongestPalindromicSubString {
 					max = dp[i][j];
 			}
 		}
+		
 		return max;
 	}
 

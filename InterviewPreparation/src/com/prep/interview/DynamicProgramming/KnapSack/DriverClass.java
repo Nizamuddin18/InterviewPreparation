@@ -16,21 +16,33 @@ public class DriverClass {
 		System.out.println("4. Count of Subset with Given Sum Bottom Up");
 		System.out.println("5. SubSetSum with Minimum Difference Bottom Up");
 		System.out.println("6. SubSetSum with Given Difference Bottom Up");
-		int choice;
-		choice = sc.nextInt();
+		System.out.println("Enter Choice : ");
+		int choice = sc.nextInt();
 		if(choice == 1){
-			int wt[] = {1,3,4,5};// weight array 
-			int val[] = {1,4,5,7}; //  value array
+			int wt[] = {2 ,5 ,1 ,3 ,4};// weight array 
+			int val[] = {15,14,10,45,30}; //  value array
 			int Wc = 7; // Knapsack weihgt
 			int n = wt.length;  // length of the items
-			int maxProfit = knapsack.getKnapSack(wt, val, n, Wc); // calling the function which takes weight and value array as an input and returns the Maximum profit
-	 		System.out.println("Max profit of 0/1 KnapSack Bottom Up : "+ maxProfit);
+			
+			// calling the function which takes weight and value array as an input and returns the Maximum profit
+			int dp[][] = new int[n+1][Wc+1];
+			
+			int maxProfit3 = knapsack.KnapSack01Tabulation1(wt, val, n, Wc); 
+			System.out.println("Max profit of 0/1 KnapSack (Tabulation) : "+ maxProfit3);
+			
+		/*	//int maxProfit1 = knapsack.KnapSack01Recursion(wt, val, n, Wc); 
+			System.out.println("Max profit of 0/1 KnapSack (Recursion ) : "+ maxProfit1);
+			int maxProfit2 = knapsack.KnapSack01Memoization(wt, val, n, Wc , dp); 
+			System.out.println("Max profit of 0/1 KnapSack (Memoization): "+ maxProfit2);
+			int maxProfit4 = knapsack.KnapSack01Tabulation2(wt, val, n, Wc , dp); 
+	 		System.out.println("Max profit of 0/1 KnapSack (Tabulation2): "+ maxProfit4);*/
 			
 		}else if(choice == 2){
 			int k[]= {1,2,3,4,5};
-			int Sum = 16;
+			int sum = 16;
 			int n = k.length;
-			boolean isPresent = subset.getSubSet(k, n, Sum);
+			boolean dp[][] = new boolean[n+1][sum +1];
+			boolean isPresent = subset.getSubSet(k, n, sum , dp);
 			System.out.println("Is Subset Present : " + isPresent);	
 			
 		}else if(choice == 3){	
@@ -72,7 +84,6 @@ public class DriverClass {
 			int subsetSum1 = (diff + sum) / 2;
 			int count = sswithDiff.getCountOfSubset(n, subsetSum1, arr);
 			System.out.println("COUNT OF SUBSET WITH GIVEN DIFFERENCE : " +count );
-			
 		}	
 
 	}

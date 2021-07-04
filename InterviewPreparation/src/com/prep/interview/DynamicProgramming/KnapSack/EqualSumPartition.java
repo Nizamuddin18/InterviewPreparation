@@ -10,7 +10,8 @@ public class EqualSumPartition {
 	
 	public boolean getEqualSumPartition(int wt[] , int length , int sum){
 		SubsetSum s = new SubsetSum();
-		boolean ret_val = s.getSubSet(wt, length, sum);
+		boolean dp[][] = new boolean[length+1][sum+1];
+		boolean ret_val = s.getSubSet(wt, length, sum , dp);
 		return ret_val;
 	}
 	

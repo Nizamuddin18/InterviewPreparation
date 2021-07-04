@@ -31,7 +31,7 @@ public class LongestPalindromicSubsequence {
 	
 	public static void main(String[] args) {
 		LongestPalindromicSubsequence lps = new LongestPalindromicSubsequence();
-		String str1 = "ccbbgd";
+		String str1 = "BBABCBCAB";
 		int count = lps.getPalindromicSubSequence(str1);
 		System.out.println("LONGEST PALINDROMIC SUBSEQUENCE : " + count);
 	}

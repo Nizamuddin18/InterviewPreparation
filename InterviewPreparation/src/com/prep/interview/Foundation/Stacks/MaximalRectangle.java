@@ -76,25 +76,31 @@ public class MaximalRectangle {
 	}
 
 	public static void main(String[] args) {
-		int matrix[][] = {{1,0,1,0,0},
-						{1,0,1,1,1},
-						{1,1,1,1,1},
-						{1,0,0,1,0}};
+		char matrix[][] = {{'1','0','1','0','0'},
+						{'1','0','1','1','1'},
+						{'1','1','1','1','1'},
+						{'1','0','0','1','0'}};
 		int res[] = new int[matrix[0].length];
 		for(int j = 0 ; j < matrix[0].length ; j++){
-			res[j] = matrix[0][j];
+			char ch = matrix[0][j];
+			res[j] = ch - '0';
 		}
+		
 		int mx = getLargestAreaHist(res);
 		for(int i = 1 ; i < matrix.length ; i++){
 			for(int j = 0 ; j < matrix[0].length ; j++){
-				if(matrix[i][j] == 0){
+				char ch = matrix[0][j];
+				int x = ch - '0';
+				if(x == 0){
 					res[j] = 0;
 				}else{
-					res[j] = res[j] + matrix[i][j];
+					int y = matrix[i][j] - '0';
+					res[j] = res[j] + y;
 				}
 			}
 			mx = Math.max(mx, getLargestAreaHist(res));
 		}
+		
 		System.out.println("Maximal Area in Binary Matrix : " + mx);
 	}
 }

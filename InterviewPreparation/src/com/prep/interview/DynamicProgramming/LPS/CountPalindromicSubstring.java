@@ -29,8 +29,9 @@ public class CountPalindromicSubstring {
 		}
 		return count;
 	}
+	
 	public static void main(String[] args) {
-		String str = "abccbc";
+		String str = "aba";
 		int count = getCountPalindromicSubstring(str);
 		System.out.println("Count of Palindromic Substring for " + str + " -> " + count);
 	}

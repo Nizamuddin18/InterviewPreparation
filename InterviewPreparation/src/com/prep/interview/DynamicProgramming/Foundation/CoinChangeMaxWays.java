@@ -1,9 +1,8 @@
 package com.prep.interview.DynamicProgramming.Foundation;
 
-public class MaxWaysCoinChange {
-	static int t[][];
+public class CoinChangeMaxWays {
 	private static int getMaxNoOfWays(int[] coin, int sum, int length) {
-		t = new int[length + 1][sum +1];	
+		int t[][] = new int[length + 1][sum +1];	
 		for(int  i =0 ; i<= length ; i++){
 			for(int j = 0 ; j <= sum ; j++){
 				if(j == 0)

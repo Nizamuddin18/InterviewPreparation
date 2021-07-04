@@ -23,7 +23,7 @@ public class MergeOverlappingIntervals {
 		}
 	}
 	
-	public static void mergeOverlappingIntervals(int[][] arr) {
+	public static int [][] mergeOverlappingIntervals(int[][] arr) {
         // merge overlapping intervals and print in increasing order of start time
 		
 		//Create an Array of Class Pair
@@ -35,9 +35,7 @@ public class MergeOverlappingIntervals {
 			pairs[i] = pair;
 		}
 		Arrays.sort(pairs); // sort the pairs Array
-		/*for(Pair p : pairs)
-			System.out.println(p);
-		*/
+		
 		Stack<Pair> st = new Stack<Pair>();
 		st.add(pairs[0]);
 		for(int i = 1 ; i < pairs.length ; i++){
@@ -48,18 +46,34 @@ public class MergeOverlappingIntervals {
 				st.push(pairs[i]);
 			}
 		}
-		for(Pair p : st)
-			System.out.println(p);
+		int ret_arr [][] = new int[st.size()][2];
+        int indx = 0;
+        for(Pair p : st){
+            ret_arr[indx][0] = p.first;
+            ret_arr[indx][1] = p.last;
+            indx++;
+        }
+		return ret_arr;
     }
+	
+	public static void display(int arr[][]){
+		for(int i = 0 ; i < arr.length ; i++){
+				System.out.print("(" + arr[i][0] + " , " + arr[i][1] + ")");
+		}
+		System.out.println();
+	}
+	
 	public static void main(String[] args) {
+		System.out.println("Input Intervals : ");
 		int arr[][] = {
-					{22 , 28},
-					{1 , 8},
-					{25 , 27},
-					{14 , 19},
-					{27 , 30},
-					{5 , 12}};
-		mergeOverlappingIntervals(arr);
+					{1,3},
+					{2,6},
+					{8,10},
+					{15,18}};
+		display(arr);
+		System.out.println("Output Intervals : ");
+		int ret_arr [][] = mergeOverlappingIntervals(arr);
+		display(ret_arr);
 	}
 
 }
